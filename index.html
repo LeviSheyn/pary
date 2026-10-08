@@ -53,7 +53,7 @@ h1{font:500 26px/1.1 var(--f);margin:0}
 /* Сейчас */
 .hero{display:block;width:100%;text-align:start;background:none;border:0;padding:0;cursor:pointer}
 .hero .lb{color:var(--onm)}
-.hero b{display:block;font:700 64px/1 var(--m);letter-spacing:-.01em;margin:8px 0 16px;text-align:start}
+.hero b{display:block;font:700 56px/1 var(--m);letter-spacing:-.01em;margin:8px 0 16px;text-align:start}
 .hero .nm{font:500 22px/1.25 var(--f)}
 .hero .mt{color:var(--onm);margin-top:4px}
 .hero .heb{color:var(--onm);text-align:start;margin-top:4px}
@@ -192,9 +192,17 @@ h1{font:500 26px/1.1 var(--f);margin:0}
 .hwi input{width:20px;height:20px;margin:1px 0 0;accent-color:var(--hw);flex:none}
 .hwi div{flex:1;min-width:0}
 .hwi small{display:block}
-.hwi.dn div{text-decoration:line-through;color:var(--ink2)}
+.hwi.dn div,.hwi.dn small{color:#a3a39a}
+.nf.hw.dn{background:color-mix(in srgb,var(--paper) 70%,#9a9a9a)}
+.nf.hw.dn .t,.nf.hw.dn .lb{color:#8a8a84}
+.nf.hw.dn>i{background:#b9b6ad}
+.nf.hw.dn .act{color:var(--ink2)}
 .hwi button{background:none;border:0;color:var(--ink2);font-size:18px;line-height:1;cursor:pointer;padding:0 4px}
 .hwa{display:flex;gap:8px;margin-top:10px}
+.hwm{display:flex;gap:6px;margin-top:12px}
+.hwm button{border:1px solid var(--rule);background:none;border-radius:99px;padding:6px 12px;font-size:13px;cursor:pointer;color:var(--ink2)}
+.hwm button.on{background:var(--hw);border-color:var(--hw);color:#fff}
+#hw-d{display:block;width:100%;margin-top:10px;padding:10px 12px;border:1px solid var(--rule);border-radius:var(--r);background:#fff;color:var(--ink);font:500 16px var(--f);color-scheme:light}
 .hwa input{flex:1;min-width:0}
 .fm label{display:block;color:var(--ink2);font-size:13px;margin-top:16px}
 .fm input,.fm select,.hwa input{display:block;width:100%;margin-top:4px;padding:10px 12px;border:1px solid var(--rule);border-radius:var(--r);background:#fff;color:var(--ink);font:500 16px var(--f);color-scheme:light}
@@ -234,7 +242,7 @@ nav button.on{color:var(--bg)}
 <section id="v2" hidden></section>
 <section id="v3" hidden></section>
 </main>
-<small class="ver">v17</small>
+<small class="ver">v1.18</small>
 <nav><span class="pill" id="pl"></span><button data-v="0"></button><button data-v="1"></button><button data-v="2"></button><button data-v="3"></button></nav>
 <script>
 const R='Английский (базовый)',H=`אנגלית בסיסי`,EL=`גב' אלנבוגן רות`,DM='Дискретная математика',DH_=`מתמטיקה בדידה`,MA='Матанализ 1',MH=`חשבון אינפיניטסימלי 1`,LA='Линейная алгебра 1',LH=`אלגברה לינארית 1`,RA=`פרופ' רינות אסף`,OS=`ד"ר שלום אור`,DP=['dep','Часы кафедры',`שעות מחלקה`,'88009-01','',''];
@@ -267,9 +275,9 @@ let EV=ls('ev',[]),HW=ls('hw',[]),SX=ls('sx',[]);
 let ST=Object.assign({th:'green',lang:'ru'},ls('set',{}));
 // ---------- Языки ----------
 const T={
-ru:{loc:'ru-RU',tabs:['Сейчас','Сегодня','Неделя','Сессия'],endL:'До конца пары',endE:'До конца события',stL:'До начала пары',stE:'До начала события',brk:'Перемена · ',noMore:'Сегодня пар больше нет · ',allOff:'Сегодня всё отменили · ',untilNext:'до следующей · ',noAhead:'Пар впереди нет.',prog:'Прогресс пары',day:'Твой день',next:'Дальше',nf:'Уведомления',all:'Все',fold:'Свернуть',offL:'Отмена',exam:'Экзамен',restore:'Вернуть',hw:'Домашка',done:'Сделано',overdue:'просрочено',to:'сдать',today:'сегодня',tomorrow:'завтра',noToday:'Сегодня пар нет.',free:'Свободный день',wk:['Эта неделя','Следующая неделя','Ещё через неделю',n=>`Через ${n} нед.`],table:'Таблица',list:'Список',own:'своё событие',mkEx:'экзамен',mkOff:'отменена',mkHw:'дз',bEx:'Экзамен',bUnEx:'Снять экзамен',bOff:'Не состоится',bUnOff:'Вернуть пару',close:'Закрыть',edit:'Изменить',del:'Удалить',newEv:'Новое событие',editEv:'Изменить событие',title:'Название',from:'С',until:'До',save:'Сохранить',cancel:'Отмена',errT:'Конец должен быть позже начала.',ph:'Вольт, спорт…',hwT:'Домашка к следующему занятию',hwPh:'Что задали?',add:'Добавить',hwNo:'Следующего занятия по предмету не нашлось.',set:'Настройки',theme:'Тема',lang:'Язык',ths:{green:'Бар-Илан',blue:'Синяя',pink:'Розовая',orange:'Оранжевая'},ses:'Сессия',addX:'+ Добавить экзамен',newX:'Новый экзамен',editX:'Изменить экзамен',course:'Предмет',moed:'Моэд',moeds:['А','Б','Спец.'],date:'Дата',time:'Время',room:'Аудитория',noX:'Экзаменов пока нет. Добавь их из Инбара, и здесь появится отсчёт до каждого.',passed:'прошёл',d:'д',h:'ч',evs:n=>`${n} ${['событие','события','событий'][n%10==1&&n%100!=11?0:n%10>=2&&n%10<=4&&(n%100<10||n%100>=20)?1:2]}`},
-en:{loc:'en-GB',tabs:['Now','Today','Week','Exams'],endL:'Until class ends',endE:'Until event ends',stL:'Until class starts',stE:'Until event starts',brk:'Break · ',noMore:'No more classes today · ',allOff:'Everything cancelled today · ',untilNext:'until next · ',noAhead:'No upcoming classes.',prog:'Class progress',day:'Your day',next:'Next',nf:'Notifications',all:'All',fold:'Collapse',offL:'Cancelled',exam:'Exam',restore:'Restore',hw:'Homework',done:'Done',overdue:'overdue',to:'due',today:'today',tomorrow:'tomorrow',noToday:'No classes today.',free:'Free day',wk:['This week','Next week','Week after next',n=>`In ${n} weeks`],table:'Table',list:'List',own:'your event',mkEx:'exam',mkOff:'cancelled',mkHw:'hw',bEx:'Exam',bUnEx:'Not an exam',bOff:'Not happening',bUnOff:'Restore class',close:'Close',edit:'Edit',del:'Delete',newEv:'New event',editEv:'Edit event',title:'Title',from:'From',until:'Until',save:'Save',cancel:'Cancel',errT:'The end must be after the start.',ph:'Volt, gym…',hwT:'Homework for the next class',hwPh:'What was assigned?',add:'Add',hwNo:'No next class for this course was found.',set:'Settings',theme:'Theme',lang:'Language',ths:{green:'Bar-Ilan',blue:'Blue',pink:'Pink',orange:'Orange'},ses:'Exams',addX:'+ Add exam',newX:'New exam',editX:'Edit exam',course:'Course',moed:'Moed',moeds:['A','B','Special'],date:'Date',time:'Time',room:'Room',noX:'No exams yet. Add them from Inbar and a countdown will appear for each.',passed:'passed',d:'d',h:'h',evs:n=>`${n} ${n==1?'event':'events'}`},
-he:{loc:'he-IL',tabs:['עכשיו','היום','שבוע','בחינות'],endL:'עד סוף השיעור',endE:'עד סוף האירוע',stL:'עד תחילת השיעור',stE:'עד תחילת האירוע',brk:'הפסקה · ',noMore:'אין עוד שיעורים היום · ',allOff:'הכול בוטל היום · ',untilNext:'עד הבא · ',noAhead:'אין שיעורים קרובים.',prog:'התקדמות השיעור',day:'היום שלך',next:'הבא',nf:'התראות',all:'הכול',fold:'כווץ',offL:'ביטול',exam:'מבחן',restore:'שחזר',hw:'שיעורי בית',done:'בוצע',overdue:'באיחור',to:'עד',today:'היום',tomorrow:'מחר',noToday:'אין שיעורים היום.',free:'יום פנוי',wk:['השבוע','שבוע הבא','בעוד שבועיים',n=>`בעוד ${n} שבועות`],table:'טבלה',list:'רשימה',own:'אירוע אישי',mkEx:'מבחן',mkOff:'בוטל',mkHw:'ש״ב',bEx:'מבחן',bUnEx:'לא מבחן',bOff:'לא יתקיים',bUnOff:'החזר שיעור',close:'סגור',edit:'ערוך',del:'מחק',newEv:'אירוע חדש',editEv:'עריכת אירוע',title:'שם',from:'מ־',until:'עד',save:'שמור',cancel:'ביטול',errT:'השעה המסיימת חייבת להיות אחרי ההתחלה.',ph:'וולט, ספורט…',hwT:'שיעורי בית לשיעור הבא',hwPh:'מה נתנו?',add:'הוסף',hwNo:'לא נמצא שיעור הבא בקורס.',set:'הגדרות',theme:'ערכת צבע',lang:'שפה',ths:{green:'בר־אילן',blue:'כחול',pink:'ורוד',orange:'כתום'},ses:'בחינות',addX:'+ הוסף בחינה',newX:'בחינה חדשה',editX:'עריכת בחינה',course:'קורס',moed:'מועד',moeds:['א׳','ב׳','מיוחד'],date:'תאריך',time:'שעה',room:'חדר',noX:'אין עדיין בחינות. הוסף אותן מאינבר ויופיע ספירה לאחור לכל אחת.',passed:'עבר',d:'י׳',h:'ש׳',evs:n=>`${n} אירועים`}};
+ru:{loc:'ru-RU',tabs:['Сейчас','Сегодня','Неделя','Сессия'],endL:'До конца пары',endE:'До конца события',stL:'До начала пары',stE:'До начала события',brk:'Перемена · ',noMore:'Сегодня пар больше нет · ',allOff:'Сегодня всё отменили · ',untilNext:'до следующей · ',noAhead:'Пар впереди нет.',prog:'Прогресс пары',day:'Твой день',next:'Дальше',nf:'Уведомления',all:'Все',fold:'Свернуть',offL:'Отмена',exam:'Экзамен',restore:'Вернуть',hw:'Домашка',done:'Сделано',undone:'Не сделано',overdue:'просрочено',to:'сдать',today:'сегодня',tomorrow:'завтра',noToday:'Сегодня пар нет.',free:'Свободный день',wk:['Эта неделя','Следующая неделя','Ещё через неделю',n=>`Через ${n} нед.`],table:'Таблица',list:'Список',own:'своё событие',mkEx:'экзамен',mkOff:'отменена',mkHw:'дз',bEx:'Экзамен',bUnEx:'Снять экзамен',bOff:'Не состоится',bUnOff:'Вернуть пару',close:'Закрыть',edit:'Изменить',del:'Удалить',newEv:'Новое событие',editEv:'Изменить событие',title:'Название',from:'С',until:'До',save:'Сохранить',cancel:'Отмена',errT:'Конец должен быть позже начала.',ph:'Вольт, спорт…',hwT:'Домашка',hwNx:'К следующему занятию',hwDt:'К дате',hwErr:'В этот день нет пары по этому предмету.',hwPast:'Эта дата уже прошла.',hwPh:'Что задали?',add:'Добавить',hwNo:'Следующего занятия по предмету не нашлось.',set:'Настройки',theme:'Тема',lang:'Язык',ths:{green:'Бар-Илан',blue:'Синяя',pink:'Розовая',orange:'Оранжевая'},ses:'Сессия',addX:'+ Добавить экзамен',newX:'Новый экзамен',editX:'Изменить экзамен',course:'Предмет',moed:'Моэд',moeds:['А','Б','Спец.'],date:'Дата',time:'Время',room:'Аудитория',noX:'Экзаменов пока нет. Добавь их из Инбара, и здесь появится отсчёт до каждого.',passed:'прошёл',d:'д',h:'ч',evs:n=>`${n} ${['событие','события','событий'][n%10==1&&n%100!=11?0:n%10>=2&&n%10<=4&&(n%100<10||n%100>=20)?1:2]}`},
+en:{loc:'en-GB',tabs:['Now','Today','Week','Exams'],endL:'Until class ends',endE:'Until event ends',stL:'Until class starts',stE:'Until event starts',brk:'Break · ',noMore:'No more classes today · ',allOff:'Everything cancelled today · ',untilNext:'until next · ',noAhead:'No upcoming classes.',prog:'Class progress',day:'Your day',next:'Next',nf:'Notifications',all:'All',fold:'Collapse',offL:'Cancelled',exam:'Exam',restore:'Restore',hw:'Homework',done:'Done',undone:'Not done',overdue:'overdue',to:'due',today:'today',tomorrow:'tomorrow',noToday:'No classes today.',free:'Free day',wk:['This week','Next week','Week after next',n=>`In ${n} weeks`],table:'Table',list:'List',own:'your event',mkEx:'exam',mkOff:'cancelled',mkHw:'hw',bEx:'Exam',bUnEx:'Not an exam',bOff:'Not happening',bUnOff:'Restore class',close:'Close',edit:'Edit',del:'Delete',newEv:'New event',editEv:'Edit event',title:'Title',from:'From',until:'Until',save:'Save',cancel:'Cancel',errT:'The end must be after the start.',ph:'Volt, gym…',hwT:'Homework',hwNx:'Next class',hwDt:'By date',hwErr:'There is no class for this course on that day.',hwPast:'That date has already passed.',hwPh:'What was assigned?',add:'Add',hwNo:'No next class for this course was found.',set:'Settings',theme:'Theme',lang:'Language',ths:{green:'Bar-Ilan',blue:'Blue',pink:'Pink',orange:'Orange'},ses:'Exams',addX:'+ Add exam',newX:'New exam',editX:'Edit exam',course:'Course',moed:'Moed',moeds:['A','B','Special'],date:'Date',time:'Time',room:'Room',noX:'No exams yet. Add them from Inbar and a countdown will appear for each.',passed:'passed',d:'d',h:'h',evs:n=>`${n} ${n==1?'event':'events'}`},
+he:{loc:'he-IL',tabs:['עכשיו','היום','שבוע','בחינות'],endL:'עד סוף השיעור',endE:'עד סוף האירוע',stL:'עד תחילת השיעור',stE:'עד תחילת האירוע',brk:'הפסקה · ',noMore:'אין עוד שיעורים היום · ',allOff:'הכול בוטל היום · ',untilNext:'עד הבא · ',noAhead:'אין שיעורים קרובים.',prog:'התקדמות השיעור',day:'היום שלך',next:'הבא',nf:'התראות',all:'הכול',fold:'כווץ',offL:'ביטול',exam:'מבחן',restore:'שחזר',hw:'שיעורי בית',done:'בוצע',undone:'לא בוצע',overdue:'באיחור',to:'עד',today:'היום',tomorrow:'מחר',noToday:'אין שיעורים היום.',free:'יום פנוי',wk:['השבוע','שבוע הבא','בעוד שבועיים',n=>`בעוד ${n} שבועות`],table:'טבלה',list:'רשימה',own:'אירוע אישי',mkEx:'מבחן',mkOff:'בוטל',mkHw:'ש״ב',bEx:'מבחן',bUnEx:'לא מבחן',bOff:'לא יתקיים',bUnOff:'החזר שיעור',close:'סגור',edit:'ערוך',del:'מחק',newEv:'אירוע חדש',editEv:'עריכת אירוע',title:'שם',from:'מ־',until:'עד',save:'שמור',cancel:'ביטול',errT:'השעה המסיימת חייבת להיות אחרי ההתחלה.',ph:'וולט, ספורט…',hwT:'שיעורי בית',hwNx:'לשיעור הבא',hwDt:'לתאריך',hwErr:'אין שיעור בקורס הזה ביום הזה.',hwPast:'התאריך כבר עבר.',hwPh:'מה נתנו?',add:'הוסף',hwNo:'לא נמצא שיעור הבא בקורס.',set:'הגדרות',theme:'ערכת צבע',lang:'שפה',ths:{green:'בר־אילן',blue:'כחול',pink:'ורוד',orange:'כתום'},ses:'בחינות',addX:'+ הוסף בחינה',newX:'בחינה חדשה',editX:'עריכת בחינה',course:'קורס',moed:'מועד',moeds:['א׳','ב׳','מיוחד'],date:'תאריך',time:'שעה',room:'חדר',noX:'אין עדיין בחינות. הוסף אותן מאינבר ויופיע ספירה לאחור לכל אחת.',passed:'עבר',d:'י׳',h:'ש׳',evs:n=>`${n} אירועים`}};
 let L=T[ST.lang];
 const EN={'41004-03':'English (Basic)','139240-01':'Yiddish Culture: What Is It?','33175-01':'How to Write a Proverb, Fable, Story, Novel','183047-01':'Inventing Psychology','88195-01':'Discrete Mathematics','88195-02':'Discrete Mathematics','88132-01':'Calculus 1','88132-04':'Calculus 1','88112-01':'Linear Algebra 1','88112-03':'Linear Algebra 1 · Tutorial','88009-01':'Department hours'};
 const SHN={ru:{calc:'Матан',lin:'Линал',lint:'Линал, тиргуль',disc:'Дискр.',eng:'Англ.',dep:'Кафедра','139240':'Идиш','33175':'Формал.','183047':'Психол.'},en:{calc:'Calc',lin:'LinAlg',lint:'LinAlg tut.',disc:'Discrete',eng:'English',dep:'Dept.','139240':'Yiddish','33175':'Writing','183047':'Psych.'},he:{calc:'חדו״א',lin:'ליניארית',lint:'ליניארית תרגיל',disc:'בדידה',eng:'אנגלית',dep:'מחלקה','139240':'יידיש','33175':'כתיבה','183047':'פסיכולוגיה'}};
@@ -285,7 +293,10 @@ const dm=d=>d.toLocaleDateString(L.loc,{day:'numeric',month:'short'}).replace('.
 const at=(d,hm)=>{const x=new Date(d);x.setHours(hm.slice(0,2),hm.slice(3),0,0);return x};
 const pd=s=>new Date(s+'T00:00');
 const whenD=(d,n)=>{const i=Math.round((add(d,0)-add(n,0))/864e5);return i==0?L.today:i==1?L.tomorrow:`${ST.lang=='ru'?DN[d.getDay()].toLowerCase():DN[d.getDay()]}, ${dm(d)}`};
-const setT=(e,ms)=>{if(!e)return;const t=fmt(ms);e.textContent=t;e.dir=t.includes(':')?'ltr':'auto'};
+const setT=(e,ms,big)=>{if(!e)return;const t=big?fmtB(ms):fmtS(ms);e.textContent=t;e.dir=/\p{L}/u.test(t)?'auto':'ltr'};
+const parts=ms=>{let s=Math.max(0,Math.floor(ms/1e3));return[Math.floor(s/86400),Math.floor(s%86400/3600),Math.floor(s%3600/60),s%60]};
+const fmtB=ms=>{const[d,h,m,s]=parts(ms),t=h||d?`${h}:${p(m)}:${p(s)}`:`${p(m)}:${p(s)}`;return d?`${d} ${L.d} ${t}`:t};
+const fmtS=ms=>{const[d,h,m]=parts(ms);return d?`${d} ${L.d}`:`${h}:${p(m)}`};
 function fmt(ms){
 	let s=Math.max(0,Math.floor(ms/1e3));const d=Math.floor(s/86400);s%=86400;
 	const h=Math.floor(s/3600),m=Math.floor(s%3600/60);
@@ -355,9 +366,9 @@ function main(s,n){
 	// Уведомления: экзамены, домашка, отмены
 	const N=[];
 	s.exs.forEach((x,i)=>N.push(`<div class="nf ex" ${x.k?`data-o="${x.k}"`:`data-sx="${x.sx}"`}><i>!</i><div><span class="lb">${L.exam} · ${whenD(x.at,n)} · ${p(x.at.getHours())}:${p(x.at.getMinutes())}<em id="tx${i}"></em></span><div class="t">${esc(x.name)}</div>${x.room?`<div class="s"><span class="rm">${esc(x.room)}</span></div>`:''}</div></div>`));
-	for(const w of HW.filter(w=>!w.done).sort((a,b)=>hwAt(a.due)-hwAt(b.due))){
-		const a=hwAt(w.due),late=a<n;
-		N.push(`<div class="nf hw" data-o="${w.due}"><i>✎</i><div><span class="lb">${L.hw} · ${cname(w.c)} · ${L.to} ${whenD(a,n)} ${w.due.split('|')[1]}${late?`<em>${L.overdue}</em>`:''}</span><div class="t">${esc(w.t)}</div></div><button class="act" data-hwd="${w.id}">${L.done}</button></div>`);
+	for(const w of HW.filter(w=>!w.done||hwAt(w.due)>=add(n,0)).sort((a,b)=>a.done-b.done||hwAt(a.due)-hwAt(b.due))){
+		const a=hwAt(w.due),late=!w.done&&a<n;
+		N.push(`<div class="nf hw${w.done?' dn':''}" data-o="${w.due}"><i>${w.done?'✓':'✎'}</i><div><span class="lb">${L.hw} · ${cname(w.c)} · ${L.to} ${whenD(a,n)} ${w.due.split('|')[1]}${late?`<em>${L.overdue}</em>`:''}</span><div class="t">${esc(w.t)}</div></div><button class="act" data-hwd="${w.id}">${w.done?L.undone:L.done}</button></div>`);
 	}
 	for(const k of Object.keys(MK).filter(k=>MK[k]=='off').sort()){
 		const[dt,hm,code]=k.split('|'),d0=pd(dt),l=W[d0.getDay()].find(l=>l[0]==hm&&l[5]==code);
@@ -421,7 +432,7 @@ function session(n){
 }
 let SXT=[];
 // ---------- Окна ----------
-let open=null,SRC=null;
+let open=null,SRC=null,HWM='n';
 function modal(){
 	const m=$('md'),was=!m.hidden;if(!open){m.hidden=true;return}
 	const[kind,v]=open.split('|');
@@ -434,8 +445,8 @@ function modal(){
 		const bt=x.own?`<button data-ed="${x.own.id}">${L.edit}</button><button data-del="${x.own.id}">${L.del}</button>`:`<button data-m="exam"${x.exam?' class="on"':''}>${x.exam?L.bUnEx:L.bEx}</button><button data-m="off"${x.off?' class="on"':''}>${x.off?L.bUnOff:L.bOff}</button>`;
 		let hw='';
 		if(!x.own){
-			const c=crs(x.l),list=HW.filter(w=>w.c==c&&(!w.done||hwAt(w.due)>=add(new Date(),0))).sort((a,b)=>hwAt(a.due)-hwAt(b.due)),nx=nextOf(x);
-			hw=`<div class="hws"><span class="lb">${L.hwT}</span>${list.map(w=>{const a=hwAt(w.due);return`<label class="hwi${w.done?' dn':''}"><input type="checkbox" data-hwt="${w.id}"${w.done?' checked':''}><div>${esc(w.t)}<small>${L.to} ${whenD(a,new Date())} · ${w.due.split('|')[1]}</small></div><button type="button" data-hwx="${w.id}" aria-label="${L.del}">×</button></label>`}).join('')}${nx?`<div class="hwa"><input id="hw-t" maxlength="120" placeholder="${L.hwPh}"><button type="button" id="hw-a">${L.add}</button></div><small>${L.to} ${whenD(nx.d,new Date())} · ${nx.l[0]}</small>`:`<small>${L.hwNo}</small>`}</div>`;
+			const c=crs(x.l),list=HW.filter(w=>w.c==c).sort((a,b)=>a.done-b.done||hwAt(a.due)-hwAt(b.due)),nx=nextOf(x);
+			hw=`<div class="hws"><span class="lb">${L.hwT}</span>${list.map(w=>{const a=hwAt(w.due);return`<label class="hwi${w.done?' dn':''}"><input type="checkbox" data-hwt="${w.id}"${w.done?' checked':''}><div>${esc(w.t)}<small>${L.to} ${whenD(a,new Date())} · ${w.due.split('|')[1]}</small></div><button type="button" data-hwx="${w.id}" aria-label="${L.del}">×</button></label>`}).join('')}<div class="hwm"><button type="button" data-hm="n"${HWM=='n'?' class="on"':''}>${L.hwNx}</button><button type="button" data-hm="d"${HWM=='d'?' class="on"':''}>${L.hwDt}</button></div><input id="hw-d" type="date"${HWM=='d'?'':' hidden'} value="${nx?ymd(nx.d):ymd(new Date())}" min="${ymd(new Date())}"><div class="hwa"><input id="hw-t" maxlength="120" placeholder="${L.hwPh}"><button type="button" id="hw-a">${L.add}</button></div><small id="hw-n"${HWM=='n'?'':' hidden'}>${nx?`${L.to} ${whenD(nx.d,new Date())} · ${nx.l[0]}`:L.hwNo}</small><p class="er" id="hw-er" hidden></p></div>`;
 		}
 		m.innerHTML=`<div class="sh${cls(x)}"><small>${DN[d.getDay()]}, ${dm(d)} · ${rg(x.l[0],x.l[1])}</small><div class="nm">${dot(x.l)}${nm(x.l)}${chips(x)}</div>${x.own?'':`<div class="mt">${mt(x)}</div>${heb(x)?`<div class="heb">${heb(x)}</div>`:''}`}${hw}<div class="bt">${bt}<button type="button" class="cl">${L.close}</button></div></div>`;
 	}
@@ -504,7 +515,14 @@ $('md').onclick=e=>{
 	else if(d.ed){open='edit|'+d.ed;modal()}
 	else if(d.del){EV=EV.filter(e=>e.id!=d.del);put('ev',EV);SRC=null;closeM();refresh()}
 	else if(d.hwx){HW=HW.filter(w=>w.id!=d.hwx);put('hw',HW);refresh();modal()}
-	else if(b.id=='hw-a'){const t=$('hw-t').value.trim();if(!t)return;const x=lessons(pd(open.split('|')[0])).find(x=>x.k==open),nx=nextOf(x);HW.push({id:Date.now().toString(36),c:crs(x.l),t,due:nx.k,done:false});put('hw',HW);refresh();modal()}
+	else if(d.hm){HWM=d.hm;b.parentNode.querySelectorAll('button').forEach(y=>y.classList.toggle('on',y==b));$('hw-d').hidden=HWM!='d';$('hw-n').hidden=HWM!='n';$('hw-er').hidden=true}
+	else if(b.id=='hw-a'){
+		const t=$('hw-t').value.trim(),er=m=>{$('hw-er').textContent=m;$('hw-er').hidden=false};if(!t)return $('hw-t').focus();
+		const x=lessons(pd(open.split('|')[0])).find(x=>x.k==open);let due;
+		if(HWM=='n'){const nx=nextOf(x);if(!nx)return er(L.hwNo);due=nx.k}
+		else{const v=$('hw-d').value;if(!v)return;if(pd(v)<add(new Date(),0))return er(L.hwPast);const y=real(pd(v)).find(y=>!y.own&&!y.off&&crs(y.l)==crs(x.l));if(!y)return er(L.hwErr);due=y.k}
+		HW.push({id:Date.now().toString(36),c:crs(x.l),t,due,done:false});put('hw',HW);refresh();modal();
+	}
 	else if(d.th){ST.th=d.th;put('set',ST);apply();refresh();modal()}
 	else if(d.lg){ST.lang=d.lg;put('set',ST);apply();refresh();modal();pill(cv)}
 	else if(d.sxd){SX=SX.filter(x=>x.id!=d.sxd);put('sx',SX);closeM();refresh()}
@@ -527,7 +545,7 @@ document.addEventListener('click',e=>{
 	const t=e.target,q=s=>t.closest(s);
 	if(q('#gr')){SRC=q('#gr').getBoundingClientRect();open='set';modal();return}
 	const u=q('[data-un]');if(u){delete MK[u.dataset.un];put('mark',MK);refresh();return}
-	const hd=q('[data-hwd]');if(hd){HW.find(w=>w.id==hd.dataset.hwd).done=true;put('hw',HW);refresh();return}
+	const hd=q('[data-hwd]');if(hd){const w=HW.find(w=>w.id==hd.dataset.hwd);w.done=!w.done;put('hw',HW);refresh();return}
 	if(q('#nft')||!NFO&&q('.stk.many')){stack();return}
 	const o=q('[data-o]');if(o){SRC=o.getBoundingClientRect();open=o.dataset.o;modal();return}
 	const sx=q('[data-sx]');if(sx){SRC=sx.getBoundingClientRect();open='sx|'+sx.dataset.sx;modal();return}
@@ -544,7 +562,7 @@ function tick(){
 	const n=new Date(),k=[n.getDay(),n.getHours(),n.getMinutes(),ST.lang].join();
 	$('ck').textContent=`${p(n.getHours())}:${p(n.getMinutes())}`;
 	if(k!=key){key=k;S=state(n);$('dn').textContent=DN[S.d];$('dt').textContent=n.toLocaleDateString(L.loc,{day:'numeric',month:'long'});main(S,n);today(S,n);week();session(n)}
-	if(T1)setT($('t1'),T1-n);
+	if(T1)setT($('t1'),T1-n,1);
 	if(PG){const f=Math.min(1,(n-PG[0])/(PG[1]-PG[0]));$('pg').style.transform=`scaleX(${f})`;$('pgt').textContent=`${Math.round(f*100)}%`}
 	S.exs.forEach((x,i)=>setT($('tx'+i),x.at-n));
 	SXT.forEach((a,i)=>setT($('sx'+i),a-n));

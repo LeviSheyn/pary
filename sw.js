@@ -1,5 +1,5 @@
 // При каждой правке поднимать V, чтобы обновился кэш
-const V='calendula-2.4',F=['./','index.html','manifest.webmanifest','icon-192.png','icon-512.png','icon-maskable.png','campus.webp',...['cyrillic','latin'].flatMap(s=>[300,400,500,600,700].map(w=>`nunito-${s}-${w}.woff2`)),'varela-hebrew-400.woff2'];
+const V='calendula-2.5',F=['./','index.html','manifest.webmanifest?v=25','ic25-192.png','ic25-512.png','ic25-maskable.png','campus.webp',...['cyrillic','latin'].flatMap(s=>[300,400,500,600,700].map(w=>`nunito-${s}-${w}.woff2`)),'varela-hebrew-400.woff2'];
 self.oninstall=e=>{self.skipWaiting();e.waitUntil(caches.open(V).then(c=>c.addAll(F)))};
 self.onactivate=e=>e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!=V).map(x=>caches.delete(x)))).then(()=>self.clients.claim()));
 // Страница: сначала сеть (свежие правки), без сети из кэша. Остальное: из кэша.

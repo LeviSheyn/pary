@@ -161,7 +161,7 @@ h1{font:500 26px/1.1 var(--f);margin:0}
 .cell.off{background:color-mix(in srgb,var(--paper) 45%,var(--bg));text-decoration:line-through}
 .cell.exam{box-shadow:inset 0 0 0 2px var(--exam)}
 /* Окно пары */
-.md{position:fixed;inset:0;z-index:5;background:rgba(2,14,11,.78);display:flex;align-items:flex-end;justify-content:center;padding:16px 16px calc(88px + env(safe-area-inset-bottom,0px))}
+.md{position:fixed;inset:0;z-index:5;background:rgba(2,14,11,.78);display:flex;align-items:center;justify-content:center;padding:16px}
 .sh{width:100%;max-width:488px;background:var(--paper);color:var(--ink);border-radius:var(--r);padding:24px}
 .sh small{color:var(--ink2)}
 .sh .nm{font:500 22px/1.25 var(--f);margin:8px 0 4px}
@@ -198,7 +198,7 @@ button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
 <section id="v1" hidden></section>
 <section id="v2" hidden></section>
 </main>
-<small class="ver">версия 14</small>
+<small class="ver">версия 15</small>
 <nav><span class="pill" id="pl"></span><button data-v="0">Сейчас</button><button data-v="1">Сегодня</button><button data-v="2">Неделя</button></nav>
 <script>
 const R='Английский (базовый)',H=`אנגלית בסיסי`,EL=`גב' אלנבוגן רות`,DM='Дискретная математика',DH_=`מתמטיקה בדידה`,MA='Матанализ 1',MH=`חשבון אינפיניטסימלי 1`,LA='Линейная алгебра 1',LH=`אלגברה לינארית 1`,RA=`פרופ' רינות אסף`,OS=`ד"ר שלום אור`,DP=['dep','Часы кафедры',`שעות מחלקה`,'88009-01','',''];
@@ -353,13 +353,34 @@ function week(){
 // Окно пары: подробности и пометки (одно на всё приложение)
 let open;
 function modal(){
-	const m=$('md');if(!open){m.hidden=true;return}
-	if(open.startsWith('new|')||open.startsWith('edit|')){form();return}
+	const m=$('md'),was=!m.hidden;if(!open){m.hidden=true;return}
+	if(open.startsWith('new|')||open.startsWith('edit|')){form();if(!was)pop();return}
 	const d=new Date(open.split('|')[0]+'T00:00'),x=lessons(d).find(x=>x.k==open);
 	if(!x){open=null;m.hidden=true;return}
 	const bt=x.own?`<button data-ed="${x.own.id}">Изменить</button><button data-del="${x.own.id}">Удалить</button>`:`<button data-m="exam"${x.exam?' class="on"':''}>${x.exam?'Снять экзамен':'Экзамен'}</button><button data-m="off"${x.off?' class="on"':''}>${x.off?'Вернуть пару':'Не состоится'}</button>`;
-	m.innerHTML=`<div class="sh${cls(x)}"><small>${DN[d.getDay()]}, ${dm(d)} · ${x.l[0]}–${x.l[1]}</small><div class="nm">${dot(x.l)}${x.l[3]}${chips(x)}</div>${x.own?'':`<div class="mt">${mt(x)}</div><div class="heb">${heb(x)}</div>`}<div class="bt">${bt}<button class="cl">Закрыть</button></div></div>`;
-	m.hidden=false;
+	m.innerHTML=`<div class="sh${cls(x)}"><small>${DN[d.getDay()]}, ${dm(d)} · ${x.l[0]}–${x.l[1]}</small><div class="nm">${dot(x.l)}${x.l[3]}${chips(x)}</div>${x.own?'':`<div class="mt">${mt(x)}</div><div class="heb">${heb(x)}</div>`}<div class="bt">${bt}<button type="button" class="cl">Закрыть</button></div></div>`;
+	m.hidden=false;if(!was)pop();
+}
+// Анимация окна: вырастает из нажатой карточки и сворачивается обратно в неё
+let SRC=null;
+const MO={duration:380,easing:'cubic-bezier(.32,.72,0,1)'};
+function from(sh){
+	const r=sh.getBoundingClientRect();
+	if(!SRC)return'translateY(16px) scale(.94)';
+	return`translate(${SRC.left+SRC.width/2-(r.left+r.width/2)}px,${SRC.top+SRC.height/2-(r.top+r.height/2)}px) scale(${SRC.width/r.width},${SRC.height/r.height})`;
+}
+function pop(){
+	if(RM)return;
+	const m=$('md'),sh=m.firstElementChild;
+	m.animate([{background:'rgba(2,14,11,0)'},{background:'rgba(2,14,11,.78)'}],{duration:240,easing:'ease-out'});
+	sh.animate([{transform:from(sh),opacity:.4,borderRadius:'14px'},{transform:'none',opacity:1}],MO);
+}
+function closeM(){
+	const m=$('md'),sh=m.firstElementChild;
+	const done=()=>{open=null;SRC=null;m.hidden=true};
+	if(RM||!sh)return done();
+	m.animate([{background:'rgba(2,14,11,.78)'},{background:'rgba(2,14,11,0)'}],{duration:260,easing:'ease-in',fill:'forwards'});
+	sh.animate([{transform:'none',opacity:1},{transform:from(sh),opacity:0}],{...MO,duration:300,fill:'forwards'}).onfinish=()=>{m.getAnimations({subtree:true}).forEach(a=>a.cancel());done()};
 }
 // Форма своего события: название, время с/до
 function form(){
@@ -372,7 +393,7 @@ function form(){
 		if(!t||!a||!b)return;
 		if(mi(b)<=mi(a)){$('f-er').hidden=false;return}
 		if(kind=='edit')Object.assign(e,{t,s:a,e:b});else EV.push({id:Date.now().toString(36),d:v,s:a,e:b,t});
-		saveEV();open=null;modal();key=null;tick();
+		saveEV();closeM();key=null;tick();
 	};
 	if(kind=='new')$('f-t').focus();
 }
@@ -380,9 +401,8 @@ $('md').onclick=e=>{
 	const b=e.target.closest('button');
 	if(b?.dataset.m){const m=b.dataset.m;MK[open]==m?delete MK[open]:MK[open]=m;try{localStorage.mark=JSON.stringify(MK)}catch(e){}key=null;tick();modal()}
 	else if(b?.dataset.ed){open='edit|'+b.dataset.ed;modal()}
-	else if(b?.dataset.del){EV=EV.filter(e=>e.id!=b.dataset.del);saveEV();open=null;modal();key=null;tick()}
-	else if(b?.type=='submit')return;
-	else if(b?.classList.contains('cl')||!e.target.closest('.sh')){open=null;modal()}
+	else if(b?.dataset.del){EV=EV.filter(e=>e.id!=b.dataset.del);saveEV();SRC=null;closeM();key=null;tick()}
+	else if(b?.classList.contains('cl')||!e.target.closest('.sh'))closeM();
 };
 // Раскрытие стопки: карточки едут из стопки на места, блок плавно меняет высоту (FLIP)
 function stack(){
@@ -401,8 +421,8 @@ function stack(){
 document.addEventListener('click',e=>{
 	const u=e.target.closest('[data-un]');if(u){delete MK[u.dataset.un];try{localStorage.mark=JSON.stringify(MK)}catch(e){}key=null;tick();return}
 	if(e.target.closest('#nft')||!NFO&&e.target.closest('.stk.many')){stack();return}
-	const o=e.target.closest('[data-o]');if(o&&!o.closest('#md')){open=o.dataset.o;modal();return}
-	const ad=e.target.closest('[data-add]');if(ad){open='new|'+ad.dataset.add;modal();return}
+	const o=e.target.closest('[data-o]');if(o&&!o.closest('#md')){SRC=o.getBoundingClientRect();open=o.dataset.o;modal();return}
+	const ad=e.target.closest('[data-add]');if(ad){SRC=ad.getBoundingClientRect();open='new|'+ad.dataset.add;modal();return}
 	const b=e.target.closest('#v2 button');if(!b)return;
 	if(b.id=='wp'&&wk)wk--;else if(b.id=='wn')wk++;else if(b.id=='vw'){grid^=1;try{localStorage.grid=grid}catch(e){}}else return;
 	week();

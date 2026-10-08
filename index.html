@@ -47,7 +47,7 @@ h1{font:500 26px/1.1 var(--f);margin:0}
 .dot{display:inline-block;width:8px;height:8px;border-radius:1px;background:var(--c);margin-inline-end:8px;vertical-align:2px;flex:none}
 .mk{font:600 11px var(--m);letter-spacing:.08em;text-transform:uppercase;margin-inline-start:8px;color:var(--ink2);text-decoration:none!important;display:inline-block}
 .mk.ex{color:var(--exam)}.mk.hw{color:var(--hw)}
-.hero .mk{color:var(--onm)}.hero .mk.ex{color:var(--exam)}.hero .mk.hw{color:#c7b2ff}
+.hero .mk{color:var(--ink2)}.hero .mk.ex{color:var(--exam)}.hero .mk.hw{color:var(--hw)}
 .off .nm,.off .tt{text-decoration:line-through}
 .heb{direction:rtl;font-size:13px}
 /* Сейчас */
@@ -60,9 +60,12 @@ h1{font:500 26px/1.1 var(--f);margin:0}
 .dd b{font:700 30px/1 var(--m)}
 .dd small{font:600 12px/1.2 var(--m);margin-top:2px}
 .hero.exam .dd{border-color:var(--exam);color:var(--exam)}
-.hero .nm{font:500 22px/1.25 var(--f)}
-.hero .mt{color:var(--onm);margin-top:4px}
-.hero .heb{color:var(--onm);text-align:start;margin-top:4px}
+.hc{background:var(--paper);color:var(--ink);border-radius:var(--r);padding:16px}
+.hero .nm{font:600 22px/1.25 var(--f)}
+.hero .mt{color:var(--ink2);margin-top:4px}
+.hero .heb{color:var(--ink2);text-align:start;margin-top:4px}
+.hc .pgh,.hc .pgl{color:var(--ink2)}
+.hc .pg{background:var(--rule)}
 .hero.exam #t1{color:var(--exam)}
 .pgh{display:flex;justify-content:space-between;color:var(--onm);margin:16px 0 6px}
 .dyh{margin-top:24px}
@@ -77,12 +80,13 @@ h1{font:500 26px/1.1 var(--f);margin:0}
 .ln{display:flex;gap:16px;color:var(--onm);font-size:14px;padding:8px 0;border-top:1px solid var(--rail)}
 .ln span:first-child{width:48px;flex:none}
 .empty{color:var(--onm);padding:24px 0}
-.next{display:grid;grid-template-columns:56px 1fr;gap:4px 16px;width:100%;text-align:start;background:var(--paper);color:var(--ink);border:0;border-radius:var(--r);padding:16px;margin-top:24px;cursor:pointer}
-.next>.lb{grid-column:1/-1;color:var(--ink2)}
+.next{display:grid;grid-template-columns:56px 1fr;gap:4px 16px;width:100%;text-align:start;background:none;color:var(--on);border:0;border-top:1px solid var(--rail);padding:16px 0 0;margin-top:24px;cursor:pointer}
+.next>.lb{grid-column:1/-1;color:var(--onm)}
 .next .tt{font:400 20px/1.2 var(--m)}
-.next .tt small{display:block;font-size:13px;color:var(--ink2)}
+.next .tt small{display:block;font-size:13px;color:var(--onm)}
 .next .nm{font-weight:500;font-size:17px}
-.next .mt{color:var(--ink2);font-size:13px;margin-top:2px}
+.next .mt{color:var(--onm);font-size:13px;margin-top:2px}
+.next .mk{color:var(--onm)}.next .mk.ex{color:var(--exam)}.next .mk.hw{color:#c7b2ff}
 /* Стопка уведомлений */
 .nfs{margin-top:24px}
 .nfh{display:flex;justify-content:space-between;align-items:baseline;color:var(--onm);margin-bottom:8px}
@@ -248,7 +252,7 @@ nav button.on{color:var(--bg)}
 <section id="v2" hidden></section>
 <section id="v3" hidden></section>
 </main>
-<small class="ver">v1.21</small>
+<small class="ver">v1.22</small>
 <nav><span class="pill" id="pl"></span><button data-v="0"></button><button data-v="1"></button><button data-v="2"></button><button data-v="3"></button></nav>
 <script>
 const R='Английский (базовый)',H=`אנגלית בסיסי`,EL=`גב' אלנבוגן רות`,DM='Дискретная математика',DH_=`מתמטיקה בדידה`,MA='Матанализ 1',MH=`חשבון אינפיניטסימלי 1`,LA='Линейная алгебра 1',LH=`אלגברה לינארית 1`,RA=`פרופ' רינות אסף`,OS=`ד"ר שלום אור`,DP=['dep','Часы кафедры',`שעות מחלקה`,'88009-01','',''];
@@ -359,9 +363,9 @@ function main(s,n){
 	}
 	if(s.cur?.off)h+=`<div class="ln"><span>${s.cur.l[0]}</span><span>${nm(s.cur.l)}: ${L.mkOff}</span></div>`;
 	if(sub){
-		h+=`<button class="hero${sub.exam?' exam':''}" data-o="${sub.k}"><span class="lb">${lab}</span><div class="tmr"><span class="dd" id="t1d" hidden><b></b><small></small></span><b id="t1"></b><span class="un">${L.until}</span></div><div class="nm">${dot(sub.l)}${nm(sub.l)}${chips(sub)}</div><div class="mt">${[rg(sub.l[0],sub.l[1]),mt(sub)].filter(Boolean).join(' · ')}</div>${heb(sub)?`<div class="heb">${heb(sub)}</div>`:''}`;
+		h+=`<button class="hero${sub.exam?' exam':''}" data-o="${sub.k}"><span class="lb">${lab}</span><div class="tmr"><span class="dd" id="t1d" hidden><b></b><small></small></span><b id="t1"></b><span class="un">${L.until}</span></div><div class="hc"><div class="nm">${dot(sub.l)}${nm(sub.l)}${chips(sub)}</div><div class="mt">${[rg(sub.l[0],sub.l[1]),mt(sub)].filter(Boolean).join(' · ')}</div>${heb(sub)?`<div class="heb">${heb(sub)}</div>`:''}`;
 		if(PG)h+=`<div class="pgh"><span class="lb">${L.prog}</span><span class="lb" id="pgt"></span></div><div class="pg"><i id="pg"></i></div><div class="pgl"><span>${c.l[0]}</span><span>${c.l[1]}</span></div>`;
-		h+='</button>';
+		h+='</div></button>';
 	}else{T1=null;h+=`<p class="empty">${L.noAhead}</p>`}
 	const D=s.L;
 	if(D.length){

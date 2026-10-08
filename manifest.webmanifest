@@ -1,15 +1,30 @@
 {
-	"name": "Пары Леви",
-	"short_name": "Пары",
+	"name": "Calendula",
+	"short_name": "Calendula",
 	"start_url": "./",
 	"scope": "./",
 	"display": "standalone",
-	"background_color": "#0a2620",
-	"theme_color": "#0a2620",
+	"background_color": "#0b2620",
+	"theme_color": "#0b2620",
 	"lang": "ru",
 	"icons": [
-		{"src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
-		{"src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
-		{"src": "icon-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+		{
+			"src": "icon-192.png",
+			"sizes": "192x192",
+			"type": "image/png",
+			"purpose": "any"
+		},
+		{
+			"src": "icon-512.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "any"
+		},
+		{
+			"src": "icon-maskable.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "maskable"
+		}
 	]
 }

@@ -39,7 +39,7 @@ button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
 h1{font:500 26px/1.1 var(--f);margin:0}
 .top small{color:var(--onm)}
 .tr{display:flex;align-items:center;gap:12px}
-.clock{font:400 16px var(--m);color:var(--onm)}
+.clock{font:700 16px var(--m);color:var(--onm)}
 .gear{width:36px;height:36px;border:1px solid var(--rail);border-radius:50%;background:none;color:var(--onm);cursor:pointer;display:grid;place-items:center;padding:0}
 .gear svg{width:18px;height:18px}
 .lb{display:block;font:600 11px var(--m);letter-spacing:.08em;text-transform:uppercase}
@@ -53,8 +53,7 @@ h1{font:500 26px/1.1 var(--f);margin:0}
 /* Сейчас */
 .hero{display:block;width:100%;text-align:start;background:none;border:0;padding:0;cursor:pointer}
 .hero .lb{color:var(--onm)}
-.hero b{display:block;font:300 64px/1 var(--m);letter-spacing:-.01em;margin:8px 0 16px;direction:ltr;text-align:start}
-[dir=rtl] .hero b{text-align:end}
+.hero b{display:block;font:700 64px/1 var(--m);letter-spacing:-.01em;margin:8px 0 16px;text-align:start}
 .hero .nm{font:500 22px/1.25 var(--f)}
 .hero .mt{color:var(--onm);margin-top:4px}
 .hero .heb{color:var(--onm);text-align:start;margin-top:4px}
@@ -101,7 +100,7 @@ h1{font:500 26px/1.1 var(--f);margin:0}
 .nf.hw>i{background:var(--hw);color:#fff}
 .nf>div{flex:1;min-width:0}
 .nf .lb{color:var(--ink2);display:flex;justify-content:space-between;gap:8px}
-.nf .lb em{font-style:normal;color:var(--exam)}
+.nf .lb em{font-style:normal;font-weight:700;color:var(--exam)}
 .nf.hw .lb em{color:var(--hw)}
 .nf .t{font-weight:500;margin-top:2px}
 .nf .s{color:var(--ink2);font-size:13px}
@@ -172,7 +171,7 @@ h1{font:500 26px/1.1 var(--f);margin:0}
 .xr{display:grid;grid-template-columns:1fr auto;gap:4px 12px;width:100%;text-align:start;background:var(--paper);color:var(--ink);border:0;border-radius:var(--r);padding:14px 16px;cursor:pointer}
 .xr .nm{font-weight:600}
 .xr .mt{color:var(--ink2);font-size:13px;grid-column:1}
-.xr b{grid-row:1/3;grid-column:2;align-self:center;font:500 18px var(--m);color:var(--exam);direction:ltr}
+.xr b{grid-row:1/3;grid-column:2;align-self:center;font:700 18px var(--m);color:var(--exam)}
 .xr.past{opacity:.5}
 .xr.past b{color:var(--ink2)}
 .addx{width:100%;margin-top:16px;border:1px dashed var(--rail);border-radius:var(--r);background:none;color:var(--acc);padding:14px;font-weight:600;cursor:pointer}
@@ -235,7 +234,7 @@ nav button.on{color:var(--bg)}
 <section id="v2" hidden></section>
 <section id="v3" hidden></section>
 </main>
-<small class="ver">v16</small>
+<small class="ver">v17</small>
 <nav><span class="pill" id="pl"></span><button data-v="0"></button><button data-v="1"></button><button data-v="2"></button><button data-v="3"></button></nav>
 <script>
 const R='Английский (базовый)',H=`אנגלית בסיסי`,EL=`גב' אלנבוגן רות`,DM='Дискретная математика',DH_=`מתמטיקה בדידה`,MA='Матанализ 1',MH=`חשבון אינפיניטסימלי 1`,LA='Линейная алгебра 1',LH=`אלגברה לינארית 1`,RA=`פרופ' רינות אסף`,OS=`ד"ר שלום אור`,DP=['dep','Часы кафедры',`שעות מחלקה`,'88009-01','',''];
@@ -286,6 +285,7 @@ const dm=d=>d.toLocaleDateString(L.loc,{day:'numeric',month:'short'}).replace('.
 const at=(d,hm)=>{const x=new Date(d);x.setHours(hm.slice(0,2),hm.slice(3),0,0);return x};
 const pd=s=>new Date(s+'T00:00');
 const whenD=(d,n)=>{const i=Math.round((add(d,0)-add(n,0))/864e5);return i==0?L.today:i==1?L.tomorrow:`${ST.lang=='ru'?DN[d.getDay()].toLowerCase():DN[d.getDay()]}, ${dm(d)}`};
+const setT=(e,ms)=>{if(!e)return;const t=fmt(ms);e.textContent=t;e.dir=t.includes(':')?'ltr':'auto'};
 function fmt(ms){
 	let s=Math.max(0,Math.floor(ms/1e3));const d=Math.floor(s/86400);s%=86400;
 	const h=Math.floor(s/3600),m=Math.floor(s%3600/60);
@@ -544,10 +544,10 @@ function tick(){
 	const n=new Date(),k=[n.getDay(),n.getHours(),n.getMinutes(),ST.lang].join();
 	$('ck').textContent=`${p(n.getHours())}:${p(n.getMinutes())}`;
 	if(k!=key){key=k;S=state(n);$('dn').textContent=DN[S.d];$('dt').textContent=n.toLocaleDateString(L.loc,{day:'numeric',month:'long'});main(S,n);today(S,n);week();session(n)}
-	if(T1)$('t1').textContent=fmt(T1-n);
+	if(T1)setT($('t1'),T1-n);
 	if(PG){const f=Math.min(1,(n-PG[0])/(PG[1]-PG[0]));$('pg').style.transform=`scaleX(${f})`;$('pgt').textContent=`${Math.round(f*100)}%`}
-	S.exs.forEach((x,i)=>{const e=$('tx'+i);if(e)e.textContent=fmt(x.at-n)});
-	SXT.forEach((a,i)=>{const e=$('sx'+i);if(e)e.textContent=fmt(a-n)});
+	S.exs.forEach((x,i)=>setT($('tx'+i),x.at-n));
+	SXT.forEach((a,i)=>setT($('sx'+i),a-n));
 }
 // ---------- Вкладки: капля перетекает, содержимое уезжает влево/вправо ----------
 const RM=matchMedia('(prefers-reduced-motion:reduce)').matches,ease='cubic-bezier(.32,.72,0,1)';

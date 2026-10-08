@@ -38,6 +38,9 @@ button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
 .top{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:24px}
 h1{font:500 26px/1.1 var(--f);margin:0}
 .top small{color:var(--onm)}
+.logo{display:flex;align-items:center;gap:6px;margin-bottom:10px;font:700 12px/1 var(--f);letter-spacing:.18em;text-transform:lowercase;color:var(--onm)}
+.logo svg{width:18px;height:18px;flex:none}
+[dir=rtl] .logo{letter-spacing:.18em}
 .tr{display:flex;align-items:center;gap:12px}
 .clock{font:700 16px var(--m);color:var(--onm)}
 .gear{width:36px;height:36px;border:1px solid var(--rail);border-radius:50%;background:none;color:var(--onm);cursor:pointer;display:grid;place-items:center;padding:0}
@@ -259,14 +262,14 @@ nav button.on{color:var(--bg)}
 <body>
 <div class="bgx"><i></i><i></i><i></i></div>
 <div class="md" id="md" hidden></div>
-<div class="top"><div><h1 id="dn"></h1><small id="dt"></small></div><div class="tr"><div class="clock" id="ck"></div><button class="gear" id="gr"></button></div></div>
+<div class="top"><div><div class="logo" id="lg"></div><h1 id="dn"></h1><small id="dt"></small></div><div class="tr"><div class="clock" id="ck"></div><button class="gear" id="gr"></button></div></div>
 <main>
 <section id="v0"></section>
 <section id="v1" hidden></section>
 <section id="v2" hidden></section>
 <section id="v3" hidden></section>
 </main>
-<small class="ver">Calendula v2.3</small>
+<small class="ver">Calendula v2.4</small>
 <nav><span class="pill" id="pl"></span><button data-v="0"></button><button data-v="1"></button><button data-v="2"></button><button data-v="3"></button></nav>
 <script>
 const R='Английский (базовый)',H=`אנגלית בסיסי`,EL=`גב' אלנבוגן רות`,DM='Дискретная математика',DH_=`מתמטיקה בדידה`,MA='Матанализ 1',MH=`חשבון אינפיניטסימלי 1`,LA='Линейная алгебра 1',LH=`אלגברה לינארית 1`,RA=`פרופ' רינות אסף`,OS=`ד"ר שלום אור`,DP=['dep','Часы кафедры',`שעות מחלקה`,'88009-01','',''];
@@ -650,6 +653,9 @@ function show(v){
 addEventListener('resize',()=>pill(cv));
 document.querySelector('nav').onclick=e=>{const v=e.target.closest('button')?.dataset.v;if(v)show(v)};
 $('gr').innerHTML=GEAR;
+// цветок календулы: два ряда лепестков и серединка
+const pt=(n,r,ry,cy,o,c)=>Array.from({length:n},(_,i)=>`<ellipse rx="${r}" ry="${ry}" cy="${cy}" transform="rotate(${i*360/n+o})" fill="${c}"/>`).join('');
+$('lg').innerHTML=`<svg viewBox="-10 -10 20 20" aria-hidden="true">${pt(12,1.7,4.3,-5.2,0,'#f5801e')}${pt(12,1.5,3.4,-4.2,15,'#ffa448')}<circle r="2.6" fill="#c45614"/></svg><span dir="ltr">calendula</span>`;
 apply();tick();show(Math.min(3,+ls('tab',0)||0));setInterval(tick,1e3);
 if('serviceWorker'in navigator)navigator.serviceWorker.register('sw.js',{updateViaCache:'none'});
 </script>

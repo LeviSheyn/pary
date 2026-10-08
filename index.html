@@ -17,8 +17,14 @@
 @font-face{font-family:Rubik;font-weight:400;font-display:swap;src:url(rubik-latin-400.woff2)format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 @font-face{font-family:Rubik;font-weight:500;font-display:swap;src:url(rubik-latin-500.woff2)format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 @font-face{font-family:Rubik;font-weight:700;font-display:swap;src:url(rubik-latin-700.woff2)format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Mono;font-weight:300;font-display:swap;src:url(mono-cyrillic-300.woff2)format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:Mono;font-weight:400;font-display:swap;src:url(mono-cyrillic-400.woff2)format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:Mono;font-weight:500;font-display:swap;src:url(mono-cyrillic-500.woff2)format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:Mono;font-weight:300;font-display:swap;src:url(mono-latin-300.woff2)format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Mono;font-weight:400;font-display:swap;src:url(mono-latin-400.woff2)format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Mono;font-weight:500;font-display:swap;src:url(mono-latin-500.woff2)format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 /* Тёмно-зелёный фон, светлые «бумажные» блоки; один шрифт; радиусы: --r для блоков и 99px для кнопок; шаг отступов 8px */
-:root{--bg:#0b2620;--on:#eef4f0;--onm:#9dbbb1;--rail:#24493f;--paper:#f3efe5;--ink:#17231e;--ink2:#5f6b65;--rule:#dcd5c4;--acc:#4fd69c;--exam:#e07f0a;--calc:#1f6f5c;--lin:#2b8a99;--disc:#7a8a2e;--eng:#8c7a4e;--gen:#6d8578;--dep:#8a958f;--f:Rubik,system-ui,sans-serif;--r:16px;--h:42px;color-scheme:dark}
+:root{--bg:#0b2620;--on:#eef4f0;--onm:#9dbbb1;--rail:#24493f;--paper:#f3efe5;--ink:#17231e;--ink2:#5f6b65;--rule:#dcd5c4;--acc:#4fd69c;--exam:#e07f0a;--calc:#1f6f5c;--lin:#2b8a99;--disc:#7a8a2e;--eng:#8c7a4e;--gen:#6d8578;--dep:#8a958f;--f:Rubik,system-ui,sans-serif;--m:Mono,ui-monospace,monospace;--r:8px;--h:42px;color-scheme:dark}
 *{box-sizing:border-box}
 [hidden]{display:none!important}
 body{background:var(--bg);color:var(--on);font:15px/1.4 var(--f);padding:calc(24px + env(safe-area-inset-top,0px)) 16px 104px;margin:0 auto;max-width:520px}
@@ -30,40 +36,62 @@ button{font:inherit;color:inherit;touch-action:manipulation}
 button:active{transform:scale(.98);transition:transform .1s}
 nav button:active{transform:none}
 .top{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:24px}
-h1{font:700 26px/1.1 var(--f);margin:0}
+h1{font:500 26px/1.1 var(--f);margin:0}
 .top small,.clock{color:var(--onm);font-variant-numeric:tabular-nums}
-.clock{font-size:16px;font-weight:500}
-.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--c);margin-right:8px;vertical-align:2px;flex:none}
-.chip{display:inline-block;font-size:12px;font-weight:500;border-radius:99px;padding:2px 8px;margin-left:8px;vertical-align:1px;background:var(--rule);color:var(--ink2)}
-.chip.ex{background:var(--exam);color:#fff}
+.clock{font:400 16px var(--m)}
+.tt,.rm,.lb,.ln span:first-child,.tl .hr,.mx .hd,.tc span,.wk b{font-family:var(--m)!important}
+.lb{display:block;font:400 11px var(--m);letter-spacing:.08em;text-transform:uppercase}
+.dot{display:inline-block;width:8px;height:8px;border-radius:1px;background:var(--c);margin-right:8px;vertical-align:2px;flex:none}
+.mk{font:500 11px var(--m);letter-spacing:.08em;text-transform:uppercase;margin-left:8px;color:var(--ink2);text-decoration:none!important;display:inline-block}
+.mk.ex{color:var(--exam)}
+.hero .mk{color:var(--onm)}.hero .mk.ex{color:var(--exam)}
 .off .nm,.off .tt{text-decoration:line-through}
 .heb{direction:rtl;font-size:13px}
 /* Сейчас */
 .hero{display:block;width:100%;text-align:left;background:none;border:0;padding:0;cursor:pointer}
-.hero small{color:var(--onm);font-size:14px}
-.hero b{display:block;font:500 64px/1 var(--f);letter-spacing:-.02em;font-variant-numeric:tabular-nums;margin:8px 0 16px}
-.hero .nm{font:700 22px/1.25 var(--f)}
+.hero .lb{color:var(--onm)}
+.hero b{display:block;font:300 60px/1 var(--m);letter-spacing:-.04em;margin:8px 0 16px}
+.hero .nm{font:500 22px/1.25 var(--f)}
+.pg{height:3px;background:var(--rail);margin-top:12px;overflow:hidden}
+.pg i{display:block;height:100%;background:var(--acc);transform-origin:left;will-change:transform}
+.pgl{display:flex;justify-content:space-between;font:400 11px var(--m);color:var(--onm);margin-top:4px}
+.dy{position:relative;height:28px;margin:24px 0 4px}
+.dy i{position:absolute;top:10px;height:8px;background:var(--c)}
+.dy i.off{background:none;border:1px dashed var(--onm);opacity:.6}
+.dy b{position:absolute;top:2px;bottom:2px;width:2px;background:var(--on);transform:translateX(-1px)}
+.dyl{display:flex;justify-content:space-between;font:400 11px var(--m);color:var(--onm)}
 .hero .mt{color:var(--onm);margin-top:4px}
 .hero .heb{color:var(--onm);text-align:left;margin-top:4px}
 .hero.exam b{color:var(--exam)}
 .ln{display:flex;gap:16px;color:var(--onm);font-size:14px;padding:8px 0;border-top:1px solid var(--rail)}
 .ln span:first-child{width:48px;flex:none;font-variant-numeric:tabular-nums}
-.stack{display:grid;gap:8px;margin-top:16px}
-.nf{display:flex;gap:16px;background:var(--paper);color:var(--ink);border-radius:var(--r);padding:16px}
-.nf>i{flex:none;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font:700 14px var(--f);font-style:normal;background:var(--rule);color:var(--ink2)}
-.nf>div{flex:1;min-width:0}
-.nf b{display:flex;justify-content:space-between;gap:8px;font-size:15px;margin-bottom:4px}
-.nf em{font-style:normal;font-weight:500;font-variant-numeric:tabular-nums;white-space:nowrap}
-.nf .r{display:flex;gap:16px;padding:2px 0}
-.nf .r span{width:44px;flex:none;color:var(--ink2);font-variant-numeric:tabular-nums}
-.nf .s{color:var(--ink2);font-size:13px}
+.nfs{margin-top:24px}
+.nfh{display:flex;justify-content:space-between;align-items:baseline;color:var(--onm);margin-bottom:8px}
+.nfh button{background:none;border:0;color:var(--acc);font:400 12px var(--m);letter-spacing:.06em;text-transform:uppercase;cursor:pointer;padding:4px 0}
+.stk{display:grid;padding-bottom:20px}
+.stk>.nf{grid-area:1/1;transition:transform .35s cubic-bezier(.32,.72,0,1),opacity .35s}
+.stk>.nf:nth-child(2){transform:translateY(10px) scale(.95);z-index:-1;background:color-mix(in srgb,var(--paper) 80%,var(--bg))}
+.stk>.nf:nth-child(3){transform:translateY(20px) scale(.9);z-index:-2;background:color-mix(in srgb,var(--paper) 60%,var(--bg))}
+.stk>.nf:nth-child(n+4){transform:translateY(20px) scale(.9);z-index:-3;opacity:0}
+.stk>.nf:not(:first-child)>*{visibility:hidden}
+.nfs.open .stk{gap:8px;padding-bottom:0}
+.nfs.open .stk>.nf{grid-area:auto;transform:none;opacity:1;z-index:auto;background:var(--paper)}
+.nfs.open .stk>.nf>*{visibility:visible}
+.nf{position:relative;display:flex;gap:12px;align-items:flex-start;background:var(--paper);color:var(--ink);border-radius:14px;padding:12px 14px;box-shadow:0 6px 20px rgba(0,0,0,.35);transform-origin:top center}
+.nf>i{flex:none;width:28px;height:28px;border-radius:7px;display:grid;place-items:center;font:500 13px var(--m);font-style:normal;background:var(--rule);color:var(--ink2)}
 .nf.ex>i{background:var(--exam);color:#fff}
+.nf>div{flex:1;min-width:0}
+.nf .lb{color:var(--ink2);display:flex;justify-content:space-between;gap:8px}
+.nf .lb em{font-style:normal;color:var(--exam)}
+.nf .t{font-weight:500;margin-top:2px}
+.nf .s{color:var(--ink2);font-size:13px}
+.nf .act{flex:none;align-self:center;background:none;border:0;color:var(--calc);font:500 12px var(--m);letter-spacing:.06em;text-transform:uppercase;padding:8px 0 8px 8px;cursor:pointer}
 .nf.ex em{color:var(--exam)}
 .next{display:grid;grid-template-columns:56px 1fr;gap:4px 16px;width:100%;text-align:left;background:var(--paper);color:var(--ink);border:0;border-radius:var(--r);padding:16px;margin-top:24px;cursor:pointer}
-.next>small{grid-column:1/-1;color:var(--ink2)}
-.next .tt{font:500 20px/1.2 var(--f);font-variant-numeric:tabular-nums}
+.next>.lb{grid-column:1/-1;color:var(--ink2)}
+.next .tt{font:400 20px/1.2 var(--m)}
 .next .tt small{display:block;font-size:13px;color:var(--ink2)}
-.next .nm{font-weight:700;font-size:17px}
+.next .nm{font-weight:500;font-size:17px}
 .next .mt{color:var(--ink2);font-size:13px;margin-top:2px}
 .empty{color:var(--onm);padding:24px 0}
 /* Сегодня: шкала */
@@ -73,7 +101,7 @@ h1{font:700 26px/1.1 var(--f);margin:0}
 .ev,.cell{display:flex;flex-direction:column;justify-content:flex-start}
 .ev{position:absolute;left:48px;right:0;border:0;border-radius:var(--r);background:var(--paper);color:var(--ink);text-align:left;padding:8px 16px;cursor:pointer;overflow:hidden}
 .ev .tt{font-size:13px;color:var(--ink2);font-variant-numeric:tabular-nums}
-.ev .nm{font-weight:700;margin-top:2px}
+.ev .nm{font-weight:500;margin-top:2px}
 .ev .mt{font-size:13px;color:var(--ink2)}
 .ev.past{opacity:.5}
 .ev.cur{box-shadow:inset 0 0 0 2px var(--acc)}
@@ -102,7 +130,7 @@ h1{font:700 26px/1.1 var(--f);margin:0}
 .rw:first-child{border-top:0}
 .rw .tt{font-weight:500;font-variant-numeric:tabular-nums}
 .rw .tt small{display:block;color:var(--ink2);font-weight:400}
-.rw .nm{font-weight:700}
+.rw .nm{font-weight:500}
 .rw .mt{color:var(--ink2);font-size:13px}
 .rw.dep{color:var(--ink2);cursor:default}
 .rw.dep .nm{font-weight:400}
@@ -126,7 +154,7 @@ h1{font:700 26px/1.1 var(--f);margin:0}
 .md{position:fixed;inset:0;z-index:5;background:rgba(2,14,11,.78);display:flex;align-items:flex-end;justify-content:center;padding:16px 16px calc(88px + env(safe-area-inset-bottom,0px))}
 .sh{width:100%;max-width:488px;background:var(--paper);color:var(--ink);border-radius:var(--r);padding:24px}
 .sh small{color:var(--ink2)}
-.sh .nm{font:700 22px/1.25 var(--f);margin:8px 0 4px}
+.sh .nm{font:500 22px/1.25 var(--f);margin:8px 0 4px}
 .sh .mt{color:var(--ink2)}
 .sh .heb{color:var(--ink2);margin-top:4px}
 .bt{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
@@ -160,7 +188,7 @@ button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
 <section id="v1" hidden></section>
 <section id="v2" hidden></section>
 </main>
-<small class="ver">версия 11</small>
+<small class="ver">версия 12</small>
 <nav><span class="pill" id="pl"></span><button data-v="0">Сейчас</button><button data-v="1">Сегодня</button><button data-v="2">Неделя</button></nav>
 <script>
 const R='Английский (базовый)',H=`אנגלית בסיסי`,EL=`גב' אלנבוגן רות`,DM='Дискретная математика',DH_=`מתמטיקה בדידה`,MA='Матанализ 1',MH=`חשבון אינפיניטסימלי 1`,LA='Линейная алгебра 1',LH=`אלגברה לינארית 1`,RA=`פרופ' רינות אסף`,OS=`ד"ר שלום אור`,DP=['dep','Часы кафедры',`שעות מחלקה`,'88009-01','',''];
@@ -184,6 +212,7 @@ const W=[
 	['12:00','14:00',...DP],
 	['14:00','16:00','lin',LA,LH,'88112-01','905 · 61',OS]],
 	[],[]];
+for(const D of W)for(const l of D)if(l[2]!='dep'){const m=l[1].slice(0,2)*60+ +l[1].slice(3)-30;l[1]=`${String(m/60|0).padStart(2,'0')}:${String(m%60).padStart(2,'0')}`}
 const DN=['Воскресенье','Понедельник','Вторник','Среда','Четверг','Пятница','Суббота'],DHe=['ראשון','שני','שלישי','רביעי','חמישי','שישי','שבת'];
 const mi=s=>s.slice(0,2)*60+ +s.slice(3),$=id=>document.getElementById(id),p=n=>String(n).padStart(2,'0');
 const ymd=d=>`${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())}`,add=(d,n)=>{const x=new Date(d);x.setDate(x.getDate()+n);x.setHours(0,0,0,0);return x};
@@ -197,7 +226,7 @@ const real=d=>lessons(d).filter(x=>!x.dep);
 const SH={'139240-01':'Идиш','33175-01':'Формал.','183047-01':'Психол.'};
 const short=l=>({calc:'Матан',lin:l[5]=='88112-03'?'Линал, тиргуль':'Линал',disc:'Дискр.',eng:'Англ.',dep:'Кафедра'})[l[2]]||SH[l[5]];
 const dot=l=>`<i class="dot" style="--c:var(--${l[2]})"></i>`;
-const chips=x=>(x.exam?'<span class="chip ex">Экзамен</span>':'')+(x.off?'<span class="chip">Отменена</span>':'');
+const chips=x=>(x.exam?'<span class="mk ex">экзамен</span>':'')+(x.off?'<span class="mk">отменена</span>':'');
 const cls=x=>(x.off?' off':'')+(x.exam?' exam':'')+(x.dep?' dep':'');
 const whenD=(d,n)=>{const i=Math.round((add(d,0)-add(n,0))/864e5);return i==0?'сегодня':i==1?'завтра':`${DN[d.getDay()].toLowerCase()}, ${dm(d)}`};
 function fmt(ms){
@@ -224,25 +253,40 @@ function state(n){
 	}
 	return{d:n.getDay(),t,L,cur,u,ex,end:last&&t<mi(last.l[1])?at(n,last.l[1]):null,last};
 }
-const mt=x=>[x.l[6],x.l[7]].filter(Boolean).join(' · ');
+const mt=x=>[x.l[6]&&`<span class="rm">${x.l[6]}</span>`,x.l[7]].filter(Boolean).join(' · ');
 // Вкладка «Сейчас»: крупный отсчёт, под ним пара; ниже следующая на бумаге и строки-сноски
-let T1;
+let T1,PG,NFO=0;
 function main(s,n){
 	const c=s.cur&&!s.cur.off?{...s.cur,at:at(n,s.cur.l[0])}:null,[a,b]=s.u.r;
-	let h='',sub,then,lab;
-	if(c){sub=c;then=a;lab='До конца пары';T1=at(n,c.l[1])}
-	else if(a){sub=a;then=b;lab=ymd(a.d)==ymd(n)?'До начала пары':`${s.L.some(x=>!x.off)?'Сегодня пар больше нет. ':s.L.length?'Сегодня всё отменили. ':''}До следующей · ${whenD(a.d,n)}`;T1=a.at}
+	let h='',sub,then,lab;PG=null;
+	if(c){sub=c;then=a;lab='До конца пары';T1=at(n,c.l[1]);PG=[c.at,T1]}
+	else if(a){
+		sub=a;then=b;T1=a.at;
+		const prev=s.L.filter(x=>!x.off&&mi(x.l[1])<=s.t).at(-1);
+		lab=ymd(a.d)!=ymd(n)?`${s.L.some(x=>!x.off)?'Сегодня пар больше нет · ':s.L.length?'Сегодня всё отменили · ':''}до следующей · ${whenD(a.d,n)}`:prev&&mi(a.l[0])-mi(prev.l[1])<=30?'Перемена · до начала пары':'До начала пары';
+	}
 	if(s.cur?.off)h+=`<div class="ln"><span>${s.cur.l[0]}</span><span>${s.cur.l[3]}: отменена</span></div>`;
-	if(sub)h+=`<button class="hero${sub.exam?' exam':''}" data-o="${sub.k}"><small>${lab}</small><b id="t1"></b><div class="nm">${dot(sub.l)}${sub.l[3]}${chips(sub)}</div><div class="mt">${sub.l[0]}–${sub.l[1]} · ${mt(sub)}</div><div class="heb">${sub.l[4]} · ${sub.l[5]}</div></button>`;
-	else{T1=null;h+='<p class="empty">Пар впереди нет.</p>'}
-	if(then)h+=`<button class="next" data-o="${then.k}"><small>Дальше · ${whenD(then.d,n)}</small><span class="tt">${then.l[0]}<small>${then.l[1]}</small></span><span><div class="nm">${dot(then.l)}${then.l[3]}${chips(then)}</div><div class="mt">${mt(then)}</div></span></button>`;
-	// Уведомления: отдельные плашки — отменённые пары (по дням) и ближайший экзамен
-	let f='';
-	const sk=s.u.skip.filter(x=>x.k!=s.cur?.k),g={};
-	for(const x of sk)(g[ymd(x.d)]??=[]).push(x);
-	for(const k in g)f+=`<div class="nf"><i>✕</i><div><b>Отменены · ${whenD(g[k][0].d,n)}</b>${g[k].map(x=>`<div class="r"><span>${x.l[0]}</span>${x.l[3]}</div>`).join('')}</div></div>`;
-	if(s.ex)f+=`<div class="nf ex"><i>!</i><div><b>Экзамен<em id="t3"></em></b><div class="r">${s.ex.l[3]}</div><div class="s">${whenD(s.ex.at,n)} · ${s.ex.l[0]} · ${s.ex.l[6]}</div></div></div>`;
-	$('v0').innerHTML=h+(f?`<div class="stack">${f}</div>`:'');
+	if(sub){
+		h+=`<button class="hero${sub.exam?' exam':''}" data-o="${sub.k}"><span class="lb">${lab}</span><b id="t1"></b><div class="nm">${dot(sub.l)}${sub.l[3]}${chips(sub)}</div><div class="mt"><span class="tt">${sub.l[0]}–${sub.l[1]}</span> · ${mt(sub)}</div><div class="heb">${sub.l[4]} · ${sub.l[5]}</div>`;
+		if(PG)h+=`<div class="pg"><i id="pg"></i></div><div class="pgl"><span>${c.l[0]}</span><span id="pgt"></span><span>${c.l[1]}</span></div>`;
+		h+='</button>';
+	}else{T1=null;h+='<p class="empty">Пар впереди нет.</p>'}
+	// Полоска дня: пары сегодня отрезками, линия «сейчас»
+	const D=s.L;
+	if(D.length){
+		const a0=Math.min(...D.map(x=>mi(x.l[0]))),a1=Math.max(...D.map(x=>mi(x.l[1]))),X=m=>(m-a0)/(a1-a0)*100;
+		h+=`<div class="dy">${D.map(x=>`<i class="${x.off?'off':''}" style="--c:var(--${x.l[2]});left:${X(mi(x.l[0]))}%;width:calc(${X(mi(x.l[1]))-X(mi(x.l[0]))}% - 2px)"></i>`).join('')}${s.t>=a0&&s.t<=a1?`<b style="left:${X(s.t)}%"></b>`:''}</div><div class="dyl"><span>${D[0].l[0]}</span><span>сегодня</span><span>${D.at(-1).l[1]}</span></div>`;
+	}
+	if(then)h+=`<button class="next" data-o="${then.k}"><span class="lb">Дальше · ${whenD(then.d,n)}</span><span class="tt">${then.l[0]}<small>${then.l[1]}</small></span><span><div class="nm">${dot(then.l)}${then.l[3]}${chips(then)}</div><div class="mt">${mt(then)}</div></span></button>`;
+	// Уведомления стопкой: предстоящие отмены и ближайший экзамен
+	const N=[];
+	for(const k of Object.keys(MK).filter(k=>MK[k]=='off').sort()){
+		const[dt,hm,code]=k.split('|'),d0=new Date(dt+'T00:00'),l=W[d0.getDay()].find(l=>l[0]==hm&&l[5]==code);
+		if(l&&at(d0,l[1])>n)N.push(`<div class="nf"><i>✕</i><div><span class="lb">Отмена · ${whenD(d0,n)} · ${hm}</span><div class="t">${l[3]}</div><div class="s"><span class="rm">${l[6]}</span></div></div><button class="act" data-un="${k}">Вернуть</button></div>`);
+	}
+	if(s.ex)N.unshift(`<div class="nf ex" data-o="${kOf(s.ex.at,s.ex.l)}"><i>!</i><div><span class="lb">Экзамен · ${whenD(s.ex.at,n)} · ${s.ex.l[0]}<em id="t3"></em></span><div class="t">${s.ex.l[3]}</div><div class="s"><span class="rm">${s.ex.l[6]}</span></div></div></div>`);
+	if(N.length)h+=`<div class="nfs${NFO?' open':''}" id="nfs"><div class="nfh"><span class="lb">Уведомления · ${N.length}</span>${N.length>1?`<button id="nft">${NFO?'Свернуть':'Все'}</button>`:''}</div><div class="stk">${N.join('')}</div></div>`;
+	$('v0').innerHTML=h;
 }
 // Вкладка «Сегодня»: шкала с часами, пары висят на ней, линия текущего времени
 function today(s,n){
@@ -300,6 +344,8 @@ $('md').onclick=e=>{
 	else if(b||!e.target.closest('.sh')){open=null;modal()}
 };
 document.addEventListener('click',e=>{
+	const u=e.target.closest('[data-un]');if(u){delete MK[u.dataset.un];try{localStorage.mark=JSON.stringify(MK)}catch(e){}key=null;tick();return}
+	if(e.target.closest('#nft')){NFO^=1;const el=$('nfs'),cs=[...el.querySelectorAll('.nf')],r0=cs.map(c=>c.getBoundingClientRect());el.classList.toggle('open',!!NFO);$('nft').textContent=NFO?'Свернуть':'Все';if(!RM)cs.forEach((c,i)=>{const r=c.getBoundingClientRect();c.animate([{transform:`translateY(${r0[i].top-r.top}px) ${getComputedStyle(c).transform=='none'?'':''}`},{transform:getComputedStyle(c).transform}],{duration:380,easing:'cubic-bezier(.32,.72,0,1)'})});return}
 	const o=e.target.closest('[data-o]');if(o&&!o.closest('#md')){open=o.dataset.o;modal();return}
 	const b=e.target.closest('#v2 button');if(!b)return;
 	if(b.id=='wp'&&wk)wk--;else if(b.id=='wn')wk++;else if(b.id=='vw'){grid^=1;try{localStorage.grid=grid}catch(e){}}else return;
@@ -311,7 +357,8 @@ function tick(){
 	$('ck').textContent=`${p(n.getHours())}:${p(n.getMinutes())}`;
 	if(k!=key){key=k;S=state(n);$('dn').textContent=DN[S.d];$('dt').textContent=n.toLocaleDateString('ru-RU',{day:'numeric',month:'long'});main(S,n);today(S,n);week()}
 	if(T1)$('t1').textContent=fmt(T1-n);
-		if(S.ex&&$('t3'))$('t3').textContent=fmt(S.ex.at-n);
+		if(PG){const f=Math.min(1,(n-PG[0])/(PG[1]-PG[0]));$('pg').style.transform=`scaleX(${f})`;$('pgt').textContent=`${Math.round(f*100)}%`}
+	if(S.ex&&$('t3'))$('t3').textContent=fmt(S.ex.at-n);
 }
 // Переключение вкладок: капля на панели перетекает, содержимое уезжает влево/вправо
 const RM=matchMedia('(prefers-reduced-motion:reduce)').matches,ease='cubic-bezier(.32,.72,0,1)';

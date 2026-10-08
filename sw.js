@@ -1,5 +1,5 @@
 // При каждой правке поднимать V, чтобы обновился кэш
-const V='pary-11',F=['./','index.html','manifest.webmanifest','icon-192.png','icon-512.png','icon-maskable.png',...['cyrillic','hebrew','latin'].flatMap(s=>[400,500,700].map(w=>`rubik-${s}-${w}.woff2`))];
+const V='pary-12',F=['./','index.html','manifest.webmanifest','icon-192.png','icon-512.png','icon-maskable.png',...['cyrillic','hebrew','latin'].flatMap(s=>[400,500,700].map(w=>`rubik-${s}-${w}.woff2`)),...['cyrillic','latin'].flatMap(s=>[300,400,500].map(w=>`mono-${s}-${w}.woff2`))];
 self.oninstall=e=>{self.skipWaiting();e.waitUntil(caches.open(V).then(c=>c.addAll(F)))};
 self.onactivate=e=>e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!=V).map(x=>caches.delete(x)))).then(()=>self.clients.claim()));
 // Страница: сначала сеть (свежие правки), без сети из кэша. Остальное: из кэша.

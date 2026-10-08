@@ -22,7 +22,10 @@
 *{box-sizing:border-box}
 [hidden]{display:none!important}
 body{background:var(--bg);color:var(--on);font:15px/1.4 var(--f);padding:calc(24px + env(safe-area-inset-top,0px)) 16px 104px;margin:0 auto;max-width:520px}
-button{font:inherit;color:inherit}
+*{-webkit-tap-highlight-color:transparent}
+button{font:inherit;color:inherit;touch-action:manipulation}
+button:active{transform:scale(.98);transition:transform .1s}
+nav button:active{transform:none}
 .top{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:24px}
 h1{font:700 26px/1.1 var(--f);margin:0}
 .top small,.clock{color:var(--onm);font-variant-numeric:tabular-nums}
@@ -128,24 +131,25 @@ h1{font:700 26px/1.1 var(--f);margin:0}
 .bt .on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 .bt .cl{margin-left:auto;border:0;color:var(--ink2)}
 /* Фон: тонкие орбиты-эллипсы */
-.bgx{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
-.bgx svg{width:100%;height:100%}
-.bgx ellipse{fill:none;stroke:var(--acc);stroke-width:1;opacity:.1;transform-box:fill-box;transform-origin:center;animation:orb 16s ease-in-out infinite alternate}
-.bgx ellipse:nth-child(2){animation-duration:21s;animation-direction:alternate-reverse;opacity:.08}
-.bgx ellipse:nth-child(3){animation-duration:13s;opacity:.07}
+/* Фон: эллипсы — отдельные слои, двигаются только transform (видеокарта, без перерисовки) */
+.bgx{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden;contain:strict}
+.bgx i{position:absolute;border:1px solid var(--acc);border-radius:50%;will-change:transform;animation:orb 16s ease-in-out infinite alternate}
+.bgx i:nth-child(1){width:150vw;height:75vw;left:-55vw;top:-4vw;opacity:.1}
+.bgx i:nth-child(2){width:120vw;height:60vw;left:30vw;top:48vh;opacity:.08;animation-duration:21s;animation-direction:alternate-reverse}
+.bgx i:nth-child(3){width:100vw;height:45vw;left:-20vw;top:84vh;opacity:.07;animation-duration:13s}
 @keyframes orb{to{transform:rotate(24deg) scale(1.08,.94)}}
-@media(prefers-reduced-motion:reduce){.bgx ellipse{animation:none}}
+@media(prefers-reduced-motion:reduce){.bgx i{animation:none}}
 /* Нижняя панель */
 main{position:relative;overflow-x:clip;margin:0 -16px;padding:0 16px}
-nav{position:fixed;left:0;right:0;bottom:0;display:flex;justify-content:center;gap:8px;padding:8px 16px calc(8px + env(safe-area-inset-bottom,0px));background:color-mix(in srgb,var(--bg) 84%,transparent);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-top:1px solid var(--rail)}
+nav{position:fixed;left:0;right:0;bottom:0;display:flex;justify-content:center;gap:8px;padding:8px 16px calc(8px + env(safe-area-inset-bottom,0px));background:var(--bg);border-top:1px solid var(--rail)}
 nav button{position:relative;z-index:1;flex:1;max-width:160px;border:0;border-radius:99px;padding:12px;font-weight:500;font-size:14px;background:none;color:var(--onm);cursor:pointer;transition:color .3s}
 nav button.on{color:var(--bg)}
-.pill{position:absolute;left:0;top:8px;height:calc(100% - 16px - env(safe-area-inset-bottom,0px));border-radius:99px;background:var(--acc);transform-origin:left center}
+.pill{will-change:transform;position:absolute;left:0;top:8px;height:calc(100% - 16px - env(safe-area-inset-bottom,0px));border-radius:99px;background:var(--acc);transform-origin:left center}
 button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
 </style>
 </head>
 <body>
-<div class="bgx"><svg viewBox="0 0 400 860" preserveAspectRatio="xMidYMid slice"><ellipse cx="80" cy="120" rx="300" ry="150"/><ellipse cx="360" cy="520" rx="240" ry="120"/><ellipse cx="120" cy="780" rx="200" ry="90"/></svg></div>
+<div class="bgx"><i></i><i></i><i></i></div>
 <div class="md" id="md" hidden></div>
 <div class="top"><div><h1 id="dn"></h1><small id="dt"></small></div><div class="clock" id="ck"></div></div>
 <main>

@@ -348,7 +348,7 @@ nav button.on{color:var(--bg)}
 <section id="v3" hidden></section>
 <section id="v4" hidden></section>
 </main>
-<small class="ver">Calendula v3.1</small>
+<small class="ver">Calendula v3.2</small>
 <div class="hm" id="hm" hidden></div>
 <nav><span class="pill" id="pl"></span><button data-v="0"></button><button data-v="1"></button><button data-v="2"></button><button class="hb" id="hb" aria-expanded="false"><i></i><i></i><i></i></button></nav>
 <script>
@@ -696,11 +696,12 @@ function mapView(b){
 	const m=$('md');
 	const my=[...new Set(W.flat().map(bOf).filter(k=>BLD[k]))],am=b&&bAm(b);
 	m.innerHTML=`<div class="sh mp"><div class="mph"><div><small>${L.map}</small><div class="nm">${b?`${L.bld} ${b}`:L.map}</div>${b&&(bName(b)||am.length)?`<div class="mt">${[bName(b),...am.map(a=>AMN[a][3]+' '+tr(AMN[a]))].filter(Boolean).join(' · ')}</div>`:''}</div><button type="button" class="cl" aria-label="${L.close}">×</button></div><div class="msw"><input id="ms" type="search" autocomplete="off" placeholder="${L.mSearch}" value="${esc(MQ)}"><div class="msr" id="msr"></div></div><div class="vp" id="vp"><div class="mi" id="mi"><img src="campus.webp" width="1709" height="2184" alt="${L.map}" draggable="false">${Object.entries(BLD).map(([k,[x,y]])=>`<i class="pin${k==b?' on':''}" style="left:${x*100}%;top:${y*100}%"><span>${k}</span></i>`).join('')}</div></div><span class="lb sp">${L.myB}</span><div class="opt bl">${my.map(k=>`<button type="button" data-map="${k}"${k==b?' class="on"':''}>${k}</button>`).join('')}</div></div>`;
+	m.hidden=false;// мерить можно только видимое окно: из шапки карта открывается в ещё скрытом
 	const vp=$('vp'),mi=$('mi'),IW=1709,IH=2184,P=new Map,vw=vp.clientWidth,vh=vp.clientHeight,s0=vw/IW;
 	let s=b?s0*2.6:s0,x=0,y=0,last=0,pd0=0;
 	const set=()=>{s=Math.min(Math.max(s,s0),s0*6);x=Math.min(0,Math.max(vw-IW*s,x));y=IH*s<vh?(vh-IH*s)/2:Math.min(0,Math.max(vh-IH*s,y));mi.style.transform=`translate(${x}px,${y}px) scale(${s})`;mi.style.setProperty('--k',1/s)};
 	const zoom=(f,cx,cy)=>{const n=Math.min(Math.max(s*f,s0),s0*6);x=cx-(cx-x)*n/s;y=cy-(cy-y)*n/s;s=n;set()};
-	if(b){const[bx,by]=BLD[b];x=vw/2-bx*IW*s;y=vh/2-by*IH*s}
+	if(b){const[bx,by]=BLD[b];x=vw/2-bx*IW*s;y=vh/2-by*IH*s}else{s=Math.max(s0,vh/IH);x=vw/2-.45*IW*s}
 	set();if(MQ)msearch(MQ);
 	const rel=e=>{const r=vp.getBoundingClientRect();return[e.clientX-r.left,e.clientY-r.top]};
 	vp.onpointerdown=e=>{vp.setPointerCapture(e.pointerId);P.set(e.pointerId,[e.clientX,e.clientY]);const t=Date.now();if(P.size==1&&t-last<300)zoom(2,...rel(e));last=t};

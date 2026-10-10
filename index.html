@@ -777,7 +777,7 @@ function plan(N){
 		if(K.m){
 			const go=Ls.filter(x=>!x.off),of=Ls.filter(x=>x.off&&!x.own),hd=holOf(d),xs=K.x?SX.filter(x=>x.d==ymd(d)):[];
 			if(go.length||of.length||xs.length){
-				const m=[...xs.map(x=>`❗ ${x.s} ${xn(x)} · ${L.moed} ${L.moeds[x.m]}${x.r?' · '+x.r:''}`),...go.map(x=>`${x.l[0]} ${short(x.l)}${x.l[6]?' · '+x.l[6]:''}`),...(of.length?[`${hd||L.offL}: ${of.map(x=>short(x.l)).join(', ')}`]:[])];
+				const m=[...xs.map(x=>`❗ ${x.s} ${xn(x)} · ${L.moed} ${L.moeds[x.m]}${x.r?' · '+x.r:''}`),...go.map(x=>`${x.l[0]} ${short(x.l)}${x.l[6]?' · '+x.l[6]:''}`),...(of.length?[`${hd||L.offL}: ${[...new Set(of.map(x=>short(x.l)))].join(', ')}`]:[])];
 				r.push({id:sid('m',D),at:at(d,ST.pm)/1e3,t:hd&&!go.length?hd:L.pDay(go.filter(x=>!x.own).length),m:m.join('\n'),g:['sunrise'],p:3});
 			}
 		}

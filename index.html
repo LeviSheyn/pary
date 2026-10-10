@@ -363,7 +363,7 @@ nav button.on{color:var(--bg)}
 <section id="v3" hidden></section>
 <section id="v4" hidden></section>
 </main>
-<small class="ver">Calendula v3.4</small>
+<small class="ver">Calendula v3.5</small>
 <div class="hm" id="hm" hidden></div>
 <nav><span class="pill" id="pl"></span><button data-v="0"></button><button data-v="1"></button><button data-v="2"></button><button class="hb" id="hb" aria-expanded="false"><i></i><i></i><i></i></button></nav>
 <script>
@@ -536,7 +536,8 @@ function main(s,n){
 	if(then)h+=`<button class="next" data-o="${then.k}"><span class="lb">${L.next} · ${whenD(then.d,n)}</span><span class="tt">${then.l[0]}<small>${then.l[1]}</small></span><span><div class="nm">${dot(then.l)}${nm(then.l)}${chips(then)}</div><div class="mt">${mt(then)}</div></span></button>`;
 	// Уведомления: экзамены, домашка, отмены
 	const N=[];
-	s.exs.forEach((x,i)=>N.push(`<div class="nf ex" ${x.k?`data-o="${x.k}"`:`data-sx="${x.sx}"`}><i>!</i><div><span class="lb">${L.exam} · ${whenD(x.at,n)} · ${p(x.at.getHours())}:${p(x.at.getMinutes())}<em id="tx${i}"></em></span><div class="t">${esc(x.name)}</div>${x.room?`<div class="s"><span class="rm">${esc(x.room)}</span></div>`:''}</div></div>`));
+	// экзамены в стопке появляются только за неделю
+	s.exs.forEach((x,i)=>x.at-n<=6048e5&&N.push(`<div class="nf ex" ${x.k?`data-o="${x.k}"`:`data-sx="${x.sx}"`}><i>!</i><div><span class="lb">${L.exam} · ${whenD(x.at,n)} · ${p(x.at.getHours())}:${p(x.at.getMinutes())}<em id="tx${i}"></em></span><div class="t">${esc(x.name)}</div>${x.room?`<div class="s"><span class="rm">${esc(x.room)}</span></div>`:''}</div></div>`));
 	for(const w of HW.filter(w=>!w.done||hwAt(w.due)>=add(n,0)).sort((a,b)=>a.done-b.done||hwAt(a.due)-hwAt(b.due))){
 		const a=hwAt(w.due),late=!w.done&&a<n;
 		N.push(`<div class="nf hw${w.done?' dn':''}" data-o="${w.due}"><i>${w.done?'✓':'✎'}</i><div><span class="lb">${L.hw} · ${cname(w.c)} · ${L.to} ${whenD(a,n)} ${w.due.split('|')[1]}${late?`<em>${L.overdue}</em>`:''}</span><div class="t">${esc(w.t)}</div></div><button class="act" data-hwd="${w.id}">${w.done?L.undone:L.done}</button></div>`);

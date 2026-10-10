@@ -1,0 +1,22 @@
+# Раз в день досылает пуши Calendula на ближайшие 3 дня (ntfy принимает отложенные сообщения максимум на 3 дня вперёд).
+# Очередь q приложение кладёт в calendula.json в ветке data при каждой синхронизации; одинаковый id заменяет, а не дублирует.
+name: Calendula push
+on:
+  schedule:
+    - cron: '23 3 * * *'
+  workflow_dispatch:
+jobs:
+  ntfy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Schedule notifications
+        run: |
+          curl -sfL "https://raw.githubusercontent.com/${{ github.repository }}/data/calendula.json" -o d.json || { echo "no data yet"; exit 0; }
+          node -e '
+          const d=require("./d.json"),s=d.set||{};
+          if(!s.pu||!s.pt){console.log("push off");process.exit(0)}
+          const now=Date.now()/1e3|0;
+          (async()=>{let n=0;for(const x of d.q||[])if(x.at>now+60&&x.at<now+255600){
+            const r=await fetch("https://ntfy.sh/",{method:"POST",body:JSON.stringify({topic:s.pt,sequence_id:x.id,delay:String(x.at),title:x.t,message:x.m,tags:x.g,priority:x.p,click:"https://levisheyn.github.io/pary/"})});
+            if(r.ok)n++;else console.log(x.id,r.status)}
+          console.log("scheduled",n)})()'

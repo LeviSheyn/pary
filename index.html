@@ -243,6 +243,81 @@ h1{font:500 26px/1.1 var(--f);margin:0}
 .opt button.on{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
 .sw{width:16px;height:16px;border-radius:50%;background:var(--s);box-shadow:inset 0 0 0 4px var(--b)}
 .sh .sec{margin-top:20px}
+.st .sec{border-top:1px solid var(--rule);padding-top:16px}
+.st .sec:first-of-type,.st .sec:nth-of-type(2){border:0;padding-top:0}
+.st label{margin-top:12px}
+.row{display:flex;gap:8px;margin-top:4px}
+.row input{margin:0!important;font-size:14px!important}
+.row button{flex:none;border:1px solid var(--rule);background:none;border-radius:var(--r);padding:0 12px;cursor:pointer}
+.hint{color:var(--ink2);font-size:12.5px;line-height:1.45;margin:8px 0 0}
+.lb.sp{margin-top:14px;color:var(--ink2)}
+/* Календарь: праздники и пометки */
+.mk.hl{color:#b0602a}.mk.ab{color:#b3261e}
+.next .mk.hl{color:#f0b483}
+.hol{display:flex;align-items:center;gap:8px;margin:0 0 12px;padding:10px 14px;border-radius:var(--r);background:color-mix(in srgb,#f0a35e 18%,transparent);border:1px solid color-mix(in srgb,#f0a35e 45%,transparent);color:var(--on);font-weight:600}
+.hol::before{content:"✦";color:#f0a35e}
+/* Окна */
+:root{--st:#2b8a99;--wk:#c0832a;--rs:#6d8578}
+.gap{position:absolute;inset-inline-start:48px;inset-inline-end:0;display:flex;flex-direction:column;justify-content:center;gap:2px;border:1.5px dashed var(--rail);border-radius:var(--r);background:none;color:var(--onm);text-align:start;padding:6px 14px;cursor:pointer;overflow:hidden}
+.gap b{font-weight:600;color:var(--on)}
+.gap small{font-size:12px}
+.gap[class*=t-]{border-style:solid;background:color-mix(in srgb,var(--c) 22%,transparent);border-color:color-mix(in srgb,var(--c) 70%,transparent)}
+.t-st{--c:var(--st)}.t-wk{--c:var(--wk)}.t-rs{--c:var(--rs)}
+.rw.gr{background:repeating-linear-gradient(135deg,transparent 0 8px,color-mix(in srgb,var(--rule) 55%,transparent) 8px 9px)}
+.rw.gr .nm{font-weight:400;color:var(--ink2)}
+.rw.gr[class*=t-]{background:color-mix(in srgb,var(--c) 14%,var(--paper))}
+.rw.gr[class*=t-] .mt{color:color-mix(in srgb,var(--c) 85%,#000);font-weight:600}
+.tgo button[class*=t-].on{background:var(--c);border-color:var(--c);color:#fff;box-shadow:none}
+.chk{display:flex!important;align-items:center;gap:10px;margin-top:16px;color:var(--ink)!important;font-size:14px!important}
+.chk input{width:20px!important;height:20px;margin:0!important;accent-color:var(--ink)}
+/* Семестр */
+.sem,.avg{border:1px solid var(--rail);border-radius:14px;padding:16px;margin-bottom:16px;background:color-mix(in srgb,var(--acc) 5%,transparent)}
+.sem .lb,.avg .lb{color:var(--onm)}
+.big{display:flex;align-items:baseline;gap:10px;margin:6px 0 10px}
+.big b{font:700 44px/1 var(--m);color:var(--acc)}
+.big small{color:var(--onm)}
+.sem .pgl{margin-top:6px}
+.sm{color:var(--onm);font-size:13px;margin:10px 0 0}
+.sem .sm+.sm{margin-top:4px}
+/* Учёба */
+.seg{position:relative;display:grid;grid-template-columns:1fr 1fr;padding:4px;border:1px solid var(--rail);border-radius:99px;margin-bottom:16px;isolation:isolate}
+.seg button{border:0;background:none;padding:9px;border-radius:99px;font-weight:600;color:var(--onm);cursor:pointer;transition:color .3s}
+.seg button.on{color:var(--bg)}
+.seg i{position:absolute;z-index:-1;top:4px;bottom:4px;inset-inline-start:4px;width:calc(50% - 4px);border-radius:99px;background:var(--acc)}
+.xr.gr b{font-size:22px;color:var(--ink)}
+.xr.gr b.pv{color:var(--ink2)}
+.xr.gr b.pv::before{content:"≈ "}
+.att .xr{width:100%}
+.bar{grid-column:1/-1;height:3px;background:var(--rule);border-radius:2px;overflow:hidden;margin-top:6px}
+.bar i{display:block;height:100%;background:var(--calc);transform-origin:left}
+[dir=rtl] .bar i{transform-origin:right}
+.att .xr b{color:var(--calc)}
+.att.open .xr{border-radius:var(--r) var(--r) 0 0}
+.al{background:var(--paper);border-top:1px solid var(--rule);border-radius:0 0 var(--r) var(--r);overflow:hidden}
+.ar{display:flex;justify-content:space-between;width:100%;border:0;border-top:1px solid var(--rule);background:none;color:var(--ink);padding:10px 16px;cursor:pointer;font-size:14px}
+.ar:first-child{border-top:0}
+.ar b{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--calc)}
+.ar.ms{background:color-mix(in srgb,#b3261e 8%,var(--paper))}
+.ar.ms b{color:#b3261e}
+.gk{display:grid;grid-template-columns:1fr 64px 72px 28px;gap:6px;margin-top:8px;align-items:center}
+.gk input{margin:0!important;padding:9px 10px!important;font-size:15px!important;display:block;width:100%;border:1px solid var(--rule);border-radius:var(--r);background:#fff;color:var(--ink);font:500 16px var(--f);color-scheme:light;min-width:0}
+.gk button{background:none;border:0;font-size:20px;color:var(--ink2);cursor:pointer}
+.addp{margin-top:10px;width:100%;border:1px dashed var(--rule);border-radius:var(--r);background:none;padding:10px;color:var(--ink2);cursor:pointer;font-weight:600}
+.calc{margin-top:16px;padding:12px 14px;border-radius:var(--r);background:color-mix(in srgb,var(--calc) 10%,var(--paper))}
+.calc label{margin-top:0!important}
+.calc p{margin:8px 0 0;font-weight:600;color:var(--calc)}
+/* Поиск по карте */
+.msw{position:relative;margin-bottom:12px}
+.msw input{width:100%;padding:11px 14px;border:1px solid var(--rule);border-radius:99px;background:#fff;color:var(--ink);font:500 16px var(--f);color-scheme:light}
+.msw input:focus{outline:2px solid var(--acc);border-color:transparent}
+.msr{position:absolute;z-index:3;inset-inline:0;top:calc(100% + 6px);background:var(--paper);border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,.3);overflow:hidden}
+.msr:empty{display:none}
+.msr button{display:grid;grid-template-columns:56px 1fr auto;gap:10px;align-items:center;width:100%;border:0;border-top:1px solid var(--rule);background:none;padding:10px 14px;text-align:start;cursor:pointer;color:var(--ink)}
+.msr button:first-child{border-top:0}
+.msr b{font-weight:700}
+.msr span{color:var(--ink2);font-size:14px}
+.msr i{font-style:normal}
+.msr p{margin:0;padding:12px 14px;color:var(--ink2)}
 /* Фон: эллипсы — отдельные слои, двигаются только transform */
 .bgx{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden;contain:strict}
 .bgx i{position:absolute;border:1px solid var(--acc);border-radius:50%;will-change:transform;animation:orb 16s ease-in-out infinite alternate}
@@ -254,7 +329,7 @@ h1{font:500 26px/1.1 var(--f);margin:0}
 /* Нижняя панель */
 main{position:relative;overflow-x:clip;margin:0 -16px;padding:0 16px}
 nav{position:fixed;left:0;right:0;bottom:0;display:flex;justify-content:center;gap:4px;padding:8px 12px calc(8px + env(safe-area-inset-bottom,0px));background:var(--bg);border-top:1px solid var(--rail);transition:background .4s}
-nav button{position:relative;z-index:1;flex:1;max-width:130px;border:0;border-radius:99px;padding:12px 4px;font-weight:600;font-size:14px;background:none;color:var(--onm);cursor:pointer;transition:color .3s}
+nav button{position:relative;z-index:1;flex:1;max-width:110px;border:0;border-radius:99px;padding:12px 2px;font-weight:600;font-size:13px;background:none;color:var(--onm);cursor:pointer;transition:color .3s}
 nav button.on{color:var(--bg)}
 .pill{will-change:transform;position:absolute;left:0;top:8px;height:calc(100% - 16px - env(safe-area-inset-bottom,0px));border-radius:99px;background:var(--acc);transform-origin:left center}
 </style>
@@ -262,15 +337,16 @@ nav button.on{color:var(--bg)}
 <body>
 <div class="bgx"><i></i><i></i><i></i></div>
 <div class="md" id="md" hidden></div>
-<div class="top"><div><div class="logo" id="lg"></div><h1 id="dn"></h1><small id="dt"></small></div><div class="tr"><div class="clock" id="ck"></div><button class="gear" id="gr"></button></div></div>
+<div class="top"><div><div class="logo" id="lg"></div><h1 id="dn"></h1><small id="dt"></small></div><div class="tr"><div class="clock" id="ck"></div><button class="gear" id="mpb"></button><button class="gear" id="gr"></button></div></div>
 <main>
 <section id="v0"></section>
 <section id="v1" hidden></section>
 <section id="v2" hidden></section>
 <section id="v3" hidden></section>
+<section id="v4" hidden></section>
 </main>
-<small class="ver">Calendula v2.5</small>
-<nav><span class="pill" id="pl"></span><button data-v="0"></button><button data-v="1"></button><button data-v="2"></button><button data-v="3"></button></nav>
+<small class="ver">Calendula v3.0</small>
+<nav><span class="pill" id="pl"></span><button data-v="0"></button><button data-v="1"></button><button data-v="2"></button><button data-v="3"></button><button data-v="4"></button></nav>
 <script>
 const R='Английский (базовый)',H=`אנגלית בסיסי`,EL=`גב' אלנבוגן רות`,DM='Дискретная математика',DH_=`מתמטיקה בדידה`,MA='Матанализ 1',MH=`חשבון אינפיניטסימלי 1`,LA='Линейная алгебра 1',LH=`אלגברה לינארית 1`,RA=`פרופ' רינות אסף`,OS=`ד"ר שלום אור`,DP=['dep','Часы кафедры',`שעות מחלקה`,'88009-01','',''];
 // [начало, конец, тип, рус, иврит, код, аудитория, преподаватель]
@@ -296,23 +372,36 @@ const W=[
 for(const D of W)for(const l of D)if(l[2]!='dep'){const m=l[1].slice(0,2)*60+ +l[1].slice(3)-30;l[1]=`${String(m/60|0).padStart(2,'0')}:${String(m%60).padStart(2,'0')}`}
 // ---------- Хранилище (только на этом телефоне) ----------
 const ls=(k,d)=>{try{const v=localStorage[k];return v==null?d:JSON.parse(v)}catch(e){return d}};
-const put=(k,v)=>{try{localStorage[k]=JSON.stringify(v)}catch(e){}};
-let MK=ls('mark',{});for(const k of ls('off',[]))MK[k]='off';try{localStorage.removeItem('off')}catch(e){}
-let EV=ls('ev',[]),HW=ls('hw',[]),SX=ls('sx',[]);
-let ST=Object.assign({th:'green',lang:'ru'},ls('set',{}));
+const put0=(k,v)=>{try{localStorage[k]=JSON.stringify(v)}catch(e){}};
+// ключи, которые уходят в бэкап на GitHub; любое их изменение запускает синхронизацию и пересчёт пушей
+const SK=['mark','ev','hw','sx','gr','ab','gp','gpw','set'];
+const put=(k,v)=>{put0(k,v);if(SK.includes(k))touch()};
+let MK,EV,HW,SX,ST,GR,AB,GP,GPW;
+function load(){
+	MK=ls('mark',{});for(const k of ls('off',[]))MK[k]='off';try{localStorage.removeItem('off')}catch(e){}
+	EV=ls('ev',[]);HW=ls('hw',[]);SX=ls('sx',[]);GR=ls('gr',{});AB=ls('ab',{});GP=ls('gp',{});GPW=ls('gpw',{});
+	ST=Object.assign({th:'green',lang:'ru',pu:0,pt:'',pl:15,pm:'07:30',pk:{l:1,m:1,x:1}},ls('set',{}));
+}
+load();
 // ---------- Языки ----------
+const pR=(n,a)=>a[n%10==1&&n%100!=11?0:n%10>=2&&n%10<=4&&(n%100<10||n%100>=20)?1:2];
 const T={
-ru:{loc:'ru-RU',tabs:['Сейчас','Сегодня','Неделя','Сессия'],endL:'До конца пары',endE:'До конца события',stL:'До начала пары',stE:'До начала события',brk:'Перемена · ',noMore:'Сегодня пар больше нет · ',allOff:'Сегодня всё отменили · ',untilNext:'до следующей · ',noAhead:'Пар впереди нет.',prog:'Прогресс пары',day:'Твой день',next:'Дальше',nf:'Уведомления',all:'Все',fold:'Свернуть',offL:'Отмена',exam:'Экзамен',restore:'Вернуть',hw:'Домашка',done:'Сделано',undone:'Не сделано',overdue:'просрочено',to:'сдать',today:'сегодня',tomorrow:'завтра',noToday:'Сегодня пар нет.',free:'Свободный день',wk:['Эта неделя','Следующая неделя','Ещё через неделю',n=>`Через ${n} нед.`],table:'Таблица',list:'Список',own:'своё событие',mkEx:'экзамен',mkOff:'отменена',mkHw:'дз',bEx:'Экзамен',bUnEx:'Снять экзамен',bOff:'Не состоится',bUnOff:'Вернуть пару',close:'Закрыть',edit:'Изменить',del:'Удалить',newEv:'Новое событие',editEv:'Изменить событие',title:'Название',from:'С',until:'До',save:'Сохранить',cancel:'Отмена',errT:'Конец должен быть позже начала.',ph:'Вольт, спорт…',hwT:'Домашка',hwNx:'К следующему занятию',hwDt:'К дате',hwErr:'В этот день нет пары по этому предмету.',hwPast:'Эта дата уже прошла.',hwSame:'Нельзя задать на тот же день, выбери день позже.',hwPh:'Что задали?',add:'Добавить',hwNo:'Следующего занятия по предмету не нашлось.',set:'Настройки',theme:'Тема',lang:'Язык',ths:{green:'Бар-Илан',blue:'Синяя',pink:'Розовая',orange:'Оранжевая'},ses:'Сессия',addX:'+ Добавить экзамен',newX:'Новый экзамен',editX:'Изменить экзамен',course:'Предмет',moed:'Моэд',moeds:['А','Б','Спец.'],date:'Дата',time:'Время',room:'Аудитория',noX:'Экзаменов пока нет. Добавь их из Инбара, и здесь появится отсчёт до каждого.',passed:'прошёл',d:'д',h:'ч',tu:'до',map:'Карта кампуса',onMap:b=>`Корпус ${b} на карте`,bld:'Корпус',dw:n=>['день','дня','дней'][n%10==1&&n%100!=11?0:n%10>=2&&n%10<=4&&(n%100<10||n%100>=20)?1:2],evs:n=>`${n} ${['событие','события','событий'][n%10==1&&n%100!=11?0:n%10>=2&&n%10<=4&&(n%100<10||n%100>=20)?1:2]}`},
-en:{loc:'en-GB',tabs:['Now','Today','Week','Exams'],endL:'Until class ends',endE:'Until event ends',stL:'Until class starts',stE:'Until event starts',brk:'Break · ',noMore:'No more classes today · ',allOff:'Everything cancelled today · ',untilNext:'until next · ',noAhead:'No upcoming classes.',prog:'Class progress',day:'Your day',next:'Next',nf:'Notifications',all:'All',fold:'Collapse',offL:'Cancelled',exam:'Exam',restore:'Restore',hw:'Homework',done:'Done',undone:'Not done',overdue:'overdue',to:'due',today:'today',tomorrow:'tomorrow',noToday:'No classes today.',free:'Free day',wk:['This week','Next week','Week after next',n=>`In ${n} weeks`],table:'Table',list:'List',own:'your event',mkEx:'exam',mkOff:'cancelled',mkHw:'hw',bEx:'Exam',bUnEx:'Not an exam',bOff:'Not happening',bUnOff:'Restore class',close:'Close',edit:'Edit',del:'Delete',newEv:'New event',editEv:'Edit event',title:'Title',from:'From',until:'Until',save:'Save',cancel:'Cancel',errT:'The end must be after the start.',ph:'Volt, gym…',hwT:'Homework',hwNx:'Next class',hwDt:'By date',hwErr:'There is no class for this course on that day.',hwPast:'That date has already passed.',hwSame:'You can’t set it for the same day. Pick a later day.',hwPh:'What was assigned?',add:'Add',hwNo:'No next class for this course was found.',set:'Settings',theme:'Theme',lang:'Language',ths:{green:'Bar-Ilan',blue:'Blue',pink:'Pink',orange:'Orange'},ses:'Exams',addX:'+ Add exam',newX:'New exam',editX:'Edit exam',course:'Course',moed:'Moed',moeds:['A','B','Special'],date:'Date',time:'Time',room:'Room',noX:'No exams yet. Add them from Inbar and a countdown will appear for each.',passed:'passed',d:'d',h:'h',tu:'until',map:'Campus map',onMap:b=>`Building ${b} on map`,bld:'Building',dw:n=>n==1?'day':'days',evs:n=>`${n} ${n==1?'event':'events'}`},
-he:{loc:'he-IL',tabs:['עכשיו','היום','שבוע','בחינות'],endL:'עד סוף השיעור',endE:'עד סוף האירוע',stL:'עד תחילת השיעור',stE:'עד תחילת האירוע',brk:'הפסקה · ',noMore:'אין עוד שיעורים היום · ',allOff:'הכול בוטל היום · ',untilNext:'עד הבא · ',noAhead:'אין שיעורים קרובים.',prog:'התקדמות השיעור',day:'היום שלך',next:'הבא',nf:'התראות',all:'הכול',fold:'כווץ',offL:'ביטול',exam:'מבחן',restore:'שחזר',hw:'שיעורי בית',done:'בוצע',undone:'לא בוצע',overdue:'באיחור',to:'עד',today:'היום',tomorrow:'מחר',noToday:'אין שיעורים היום.',free:'יום פנוי',wk:['השבוע','שבוע הבא','בעוד שבועיים',n=>`בעוד ${n} שבועות`],table:'טבלה',list:'רשימה',own:'אירוע אישי',mkEx:'מבחן',mkOff:'בוטל',mkHw:'ש״ב',bEx:'מבחן',bUnEx:'לא מבחן',bOff:'לא יתקיים',bUnOff:'החזר שיעור',close:'סגור',edit:'ערוך',del:'מחק',newEv:'אירוע חדש',editEv:'עריכת אירוע',title:'שם',from:'מ־',until:'עד',save:'שמור',cancel:'ביטול',errT:'השעה המסיימת חייבת להיות אחרי ההתחלה.',ph:'וולט, ספורט…',hwT:'שיעורי בית',hwNx:'לשיעור הבא',hwDt:'לתאריך',hwErr:'אין שיעור בקורס הזה ביום הזה.',hwPast:'התאריך כבר עבר.',hwSame:'אי אפשר לקבוע לאותו יום, בחר יום מאוחר יותר.',hwPh:'מה נתנו?',add:'הוסף',hwNo:'לא נמצא שיעור הבא בקורס.',set:'הגדרות',theme:'ערכת צבע',lang:'שפה',ths:{green:'בר־אילן',blue:'כחול',pink:'ורוד',orange:'כתום'},ses:'בחינות',addX:'+ הוסף בחינה',newX:'בחינה חדשה',editX:'עריכת בחינה',course:'קורס',moed:'מועד',moeds:['א׳','ב׳','מיוחד'],date:'תאריך',time:'שעה',room:'חדר',noX:'אין עדיין בחינות. הוסף אותן מאינבר ויופיע ספירה לאחור לכל אחת.',passed:'עבר',d:'י׳',h:'ש׳',tu:'עד',map:'מפת הקמפוס',onMap:b=>`בניין ${b} במפה`,bld:'בניין',dw:n=>n==1?'יום':n==2?'ימים':'ימים',evs:n=>`${n} אירועים`}};
+ru:{loc:'ru-RU',till:'до',mkAb:'пропуск',win:'Окно',tg:{st:'Учёба',wk:'Работа',rs:'Отдых'},dur:m=>m>=60?`${m/60|0} ч${m%60?` ${m%60} мин`:''}`:`${m} мин`,tagIt:'Отметь, на что окно',wkly:'каждую неделю',noTag:'Без пометки',everyWk:d=>`Каждую неделю (${d.toLowerCase()})`,phs:{A:'Семестр א׳\u200e',XA:'Сессия א׳\u200e',B:'Семестр ב׳\u200e',XB:'Сессия ב׳\u200e'},wkN:(i,n)=>`неделя ${i} из ${n}`,wkS:i=>`${i}-я неделя`,dLeft:n=>`${pR(n,['день остался','дня осталось','дней осталось'])}`,dTill:n=>`${pR(n,['день до начала','дня до начала','дней до начала'])}`,inD:n=>n==1?'завтра':`через ${n} ${pR(n,['день','дня','дней'])}`,nextOff:'Ближайший выходной',grades:'Оценки',att:'Посещаемость',avg:'Средний балл (ממוצע)',byNz:z=>`по ${z} נ״ז`,prov:'предварительно',noGr:'Добавь оценки, и здесь появится средний балл',nz:'נ״ז',noAvg:'не входит в средний',noHeld:'Пар ещё не было. Семестр א׳ начинается 11 октября.',attAll:'Был на парах',missN:m=>m?`${m} ${pR(m,['пропуск','пропуска','пропусков'])}`:'без пропусков',missed:'Пропуск',was:'Был',attHint:'Считаются только состоявшиеся пары: отменённые, праздники и выборы не входят. Нажми на занятие, чтобы отметить пропуск.',fin:'Итоговая',parts:'Части оценки',partPh:'Бохан, задания…',score:'Балл',addPart:'+ Часть оценки',target:'Хочу итог не ниже',finSet:'Итоговая уже стоит.',calcNo:'Добавь части оценки с весами, и я посчитаю, сколько нужно.',result:'Итог',calcOk:'Цель уже обеспечена 🎉',calcBad:x=>`Нужно ${x} — выше 100, цель недостижима.`,calcNeed:(x,R)=>`На оставшихся ${R}% нужно в среднем ${x}.`,bWas:'Был на паре',bMiss:'Пропустил',mSearch:'Номер, корпус или «кофе», «библиотека»…',mNone:'Ничего не нашлось',myB:'Мои корпуса',push:'Пуши (ntfy)',pOn:'Включены',pOff:'Выключены',pTopic:'Тема',copy:'Копировать',pHow:'Поставь приложение ntfy из Google Play, нажми «+» и впиши эту тему. Тему никому не показывай: кто её знает, тот видит твои пуши.',pkL:'Перед парой',pkM:'Утренняя сводка',pkX:'Экзамены',pLead:'За сколько до пары',min:'мин',pMorn:'Время сводки',pTest:'Отправить тест',sync:'Бэкап в GitHub',gOk:'Синхронизация включена: данные сохраняются в ветку data репозитория pary.',gNow:'Синхронизировать',gOut:'Убрать токен',gTok:'Токен GitHub',gHow:'GitHub → Settings → Developer settings → Fine-grained tokens → Generate. Repository access: только pary. Permissions → Contents: Read and write. Скопируй токен и вставь сюда.',gErr:e=>`Ошибка синхронизации: ${e}`,gLast:t=>`Синхронизировано: ${t}`,pIn:m=>`через ${m} мин`,pDay:n=>n?`Сегодня ${n} ${pR(n,['пара','пары','пар'])}`:'Сегодня',pTmrX:'Завтра экзамен',pPlan:n=>`Запланировано пушей: ${n}`,pErr:e=>`Пуши не отправились: ${e}`,pTestM:'Пуши работают ✓',pSent:'Тест отправлен, проверь телефон.',tabs:['Сейчас','Сегодня','Неделя','Сессия','Учёба'],endL:'До конца пары',endE:'До конца события',stL:'До начала пары',stE:'До начала события',brk:'Перемена · ',noMore:'Сегодня пар больше нет · ',allOff:'Сегодня всё отменили · ',untilNext:'до следующей · ',noAhead:'Пар впереди нет.',prog:'Прогресс пары',day:'Твой день',next:'Дальше',nf:'Уведомления',all:'Все',fold:'Свернуть',offL:'Отмена',exam:'Экзамен',restore:'Вернуть',hw:'Домашка',done:'Сделано',undone:'Не сделано',overdue:'просрочено',to:'сдать',today:'сегодня',tomorrow:'завтра',noToday:'Сегодня пар нет.',free:'Свободный день',wk:['Эта неделя','Следующая неделя','Ещё через неделю',n=>`Через ${n} нед.`],table:'Таблица',list:'Список',own:'своё событие',mkEx:'экзамен',mkOff:'отменена',mkHw:'дз',bEx:'Экзамен',bUnEx:'Снять экзамен',bOff:'Не состоится',bUnOff:'Вернуть пару',close:'Закрыть',edit:'Изменить',del:'Удалить',newEv:'Новое событие',editEv:'Изменить событие',title:'Название',from:'С',until:'До',save:'Сохранить',cancel:'Отмена',errT:'Конец должен быть позже начала.',ph:'Вольт, спорт…',hwT:'Домашка',hwNx:'К следующему занятию',hwDt:'К дате',hwErr:'В этот день нет пары по этому предмету.',hwPast:'Эта дата уже прошла.',hwSame:'Нельзя задать на тот же день, выбери день позже.',hwPh:'Что задали?',add:'Добавить',hwNo:'Следующего занятия по предмету не нашлось.',set:'Настройки',theme:'Тема',lang:'Язык',ths:{green:'Бар-Илан',blue:'Синяя',pink:'Розовая',orange:'Оранжевая'},ses:'Сессия',addX:'+ Добавить экзамен',newX:'Новый экзамен',editX:'Изменить экзамен',course:'Предмет',moed:'Моэд',moeds:['А','Б','Спец.'],date:'Дата',time:'Время',room:'Аудитория',noX:'Экзаменов пока нет. Добавь их из Инбара, и здесь появится отсчёт до каждого.',passed:'прошёл',d:'д',h:'ч',tu:'до',map:'Карта кампуса',onMap:b=>`Корпус ${b} на карте`,bld:'Корпус',dw:n=>['день','дня','дней'][n%10==1&&n%100!=11?0:n%10>=2&&n%10<=4&&(n%100<10||n%100>=20)?1:2],evs:n=>`${n} ${['событие','события','событий'][n%10==1&&n%100!=11?0:n%10>=2&&n%10<=4&&(n%100<10||n%100>=20)?1:2]}`},
+en:{loc:'en-GB',till:'until',mkAb:'missed',win:'Free time',tg:{st:'Study',wk:'Work',rs:'Rest'},dur:m=>m>=60?`${m/60|0} h${m%60?` ${m%60} min`:''}`:`${m} min`,tagIt:'Tag this window',wkly:'every week',noTag:'No tag',everyWk:d=>`Every week (${d})`,phs:{A:'Semester A',XA:'Exams A',B:'Semester B',XB:'Exams B'},wkN:(i,n)=>`week ${i} of ${n}`,wkS:i=>`week ${i}`,dLeft:n=>n==1?'day left':'days left',dTill:n=>n==1?'day to go':'days to go',inD:n=>n==1?'tomorrow':`in ${n} days`,nextOff:'Next day off',grades:'Grades',att:'Attendance',avg:'Average (ממוצע)',byNz:z=>`over ${z} credits`,prov:'provisional',noGr:'Add grades and your average shows up here',nz:'credits',noAvg:'not in average',noHeld:'No classes yet. Semester A starts on 11 October.',attAll:'Attended',missN:m=>m?`${m} missed`:'none missed',missed:'Missed',was:'Attended',attHint:'Only classes that took place count: cancellations, holidays and election day are left out. Tap a class to mark it missed.',fin:'Final grade',parts:'Grade parts',partPh:'Exam, homework…',score:'Score',addPart:'+ Grade part',target:'I want at least',finSet:'The final grade is already in.',calcNo:'Add grade parts with weights and I’ll work out what you need.',result:'Result',calcOk:'Target already secured 🎉',calcBad:x=>`You’d need ${x}, which is above 100.`,calcNeed:(x,R)=>`You need an average of ${x} on the remaining ${R}%.`,bWas:'I was there',bMiss:'I missed it',mSearch:'Number, building or “coffee”, “library”…',mNone:'Nothing found',myB:'My buildings',push:'Push (ntfy)',pOn:'On',pOff:'Off',pTopic:'Topic',copy:'Copy',pHow:'Install ntfy from Google Play, tap “+” and enter this topic. Keep it private: anyone who knows it can read your notifications.',pkL:'Before class',pkM:'Morning summary',pkX:'Exams',pLead:'How early before class',min:'min',pMorn:'Summary time',pTest:'Send a test',sync:'GitHub backup',gOk:'Sync is on: data is saved to the data branch of the pary repo.',gNow:'Sync now',gOut:'Remove token',gTok:'GitHub token',gHow:'GitHub → Settings → Developer settings → Fine-grained tokens → Generate. Repository access: only pary. Permissions → Contents: Read and write. Paste the token here.',gErr:e=>`Sync error: ${e}`,gLast:t=>`Synced: ${t}`,pIn:m=>`in ${m} min`,pDay:n=>n?`${n} ${n==1?'class':'classes'} today`:'Today',pTmrX:'Exam tomorrow',pPlan:n=>`Notifications scheduled: ${n}`,pErr:e=>`Push failed: ${e}`,pTestM:'Push works ✓',pSent:'Test sent, check your phone.',tabs:['Now','Today','Week','Exams','Grades'],endL:'Until class ends',endE:'Until event ends',stL:'Until class starts',stE:'Until event starts',brk:'Break · ',noMore:'No more classes today · ',allOff:'Everything cancelled today · ',untilNext:'until next · ',noAhead:'No upcoming classes.',prog:'Class progress',day:'Your day',next:'Next',nf:'Notifications',all:'All',fold:'Collapse',offL:'Cancelled',exam:'Exam',restore:'Restore',hw:'Homework',done:'Done',undone:'Not done',overdue:'overdue',to:'due',today:'today',tomorrow:'tomorrow',noToday:'No classes today.',free:'Free day',wk:['This week','Next week','Week after next',n=>`In ${n} weeks`],table:'Table',list:'List',own:'your event',mkEx:'exam',mkOff:'cancelled',mkHw:'hw',bEx:'Exam',bUnEx:'Not an exam',bOff:'Not happening',bUnOff:'Restore class',close:'Close',edit:'Edit',del:'Delete',newEv:'New event',editEv:'Edit event',title:'Title',from:'From',until:'Until',save:'Save',cancel:'Cancel',errT:'The end must be after the start.',ph:'Volt, gym…',hwT:'Homework',hwNx:'Next class',hwDt:'By date',hwErr:'There is no class for this course on that day.',hwPast:'That date has already passed.',hwSame:'You can’t set it for the same day. Pick a later day.',hwPh:'What was assigned?',add:'Add',hwNo:'No next class for this course was found.',set:'Settings',theme:'Theme',lang:'Language',ths:{green:'Bar-Ilan',blue:'Blue',pink:'Pink',orange:'Orange'},ses:'Exams',addX:'+ Add exam',newX:'New exam',editX:'Edit exam',course:'Course',moed:'Moed',moeds:['A','B','Special'],date:'Date',time:'Time',room:'Room',noX:'No exams yet. Add them from Inbar and a countdown will appear for each.',passed:'passed',d:'d',h:'h',tu:'until',map:'Campus map',onMap:b=>`Building ${b} on map`,bld:'Building',dw:n=>n==1?'day':'days',evs:n=>`${n} ${n==1?'event':'events'}`},
+he:{loc:'he-IL',till:'עד',mkAb:'נעדר',win:'חלון',tg:{st:'לימוד',wk:'עבודה',rs:'מנוחה'},dur:m=>m>=60?`${m/60|0} ש׳${m%60?` ${m%60} ד׳`:''}`:`${m} ד׳`,tagIt:'סמן למה החלון',wkly:'כל שבוע',noTag:'בלי סימון',everyWk:d=>`כל שבוע (${d})`,phs:{A:'סמסטר א׳',XA:'מבחנים א׳',B:'סמסטר ב׳',XB:'מבחנים ב׳'},wkN:(i,n)=>`שבוע ${i} מתוך ${n}`,wkS:i=>`שבוע ${i}`,dLeft:n=>n==1?'יום נשאר':'ימים נשארו',dTill:n=>n==1?'יום להתחלה':'ימים להתחלה',inD:n=>n==1?'מחר':`בעוד ${n} ימים`,nextOff:'יום החופש הבא',grades:'ציונים',att:'נוכחות',avg:'ממוצע',byNz:z=>`לפי ${z} נ״ז`,prov:'זמני',noGr:'הוסף ציונים והממוצע יופיע כאן',nz:'נ״ז',noAvg:'לא בממוצע',noHeld:'עוד לא היו שיעורים. סמסטר א׳ מתחיל ב־11 באוקטובר.',attAll:'נוכחות',missN:m=>m?`${m} היעדרויות`:'בלי היעדרויות',missed:'נעדר',was:'נכח',attHint:'נספרים רק שיעורים שהתקיימו: ביטולים, חגים ויום בחירות לא נכנסים. הקש על שיעור כדי לסמן היעדרות.',fin:'ציון סופי',parts:'רכיבי הציון',partPh:'בוחן, תרגילים…',score:'ציון',addPart:'+ רכיב',target:'אני רוצה לפחות',finSet:'הציון הסופי כבר קיים.',calcNo:'הוסף רכיבים עם משקלים ואחשב כמה צריך.',result:'תוצאה',calcOk:'היעד כבר מובטח 🎉',calcBad:x=>`צריך ${x}, יותר מ־100.`,calcNeed:(x,R)=>`ב־${R}% הנותרים צריך ממוצע ${x}.`,bWas:'הייתי',bMiss:'נעדרתי',mSearch:'מספר, בניין או ״קפה״, ״ספרייה״…',mNone:'לא נמצא',myB:'הבניינים שלי',push:'התראות (ntfy)',pOn:'פעיל',pOff:'כבוי',pTopic:'נושא',copy:'העתק',pHow:'התקן את ntfy מ־Google Play, הקש ״+״ והזן את הנושא. שמור אותו לעצמך: מי שיודע אותו רואה את ההתראות.',pkL:'לפני שיעור',pkM:'סיכום בוקר',pkX:'בחינות',pLead:'כמה זמן לפני השיעור',min:'ד׳',pMorn:'שעת הסיכום',pTest:'שלח בדיקה',sync:'גיבוי ל־GitHub',gOk:'הסנכרון פעיל: הנתונים נשמרים בענף data של pary.',gNow:'סנכרן',gOut:'הסר טוקן',gTok:'טוקן GitHub',gHow:'GitHub → Settings → Developer settings → Fine-grained tokens → Generate. גישה רק ל־pary, Contents: Read and write. הדבק את הטוקן כאן.',gErr:e=>`שגיאת סנכרון: ${e}`,gLast:t=>`סונכרן: ${t}`,pIn:m=>`בעוד ${m} ד׳`,pDay:n=>n?`היום ${n} שיעורים`:'היום',pTmrX:'מחר בחינה',pPlan:n=>`התראות מתוזמנות: ${n}`,pErr:e=>`ההתראות לא נשלחו: ${e}`,pTestM:'ההתראות עובדות ✓',pSent:'נשלחה בדיקה, בדוק בטלפון.',tabs:['עכשיו','היום','שבוע','בחינות','ציונים'],endL:'עד סוף השיעור',endE:'עד סוף האירוע',stL:'עד תחילת השיעור',stE:'עד תחילת האירוע',brk:'הפסקה · ',noMore:'אין עוד שיעורים היום · ',allOff:'הכול בוטל היום · ',untilNext:'עד הבא · ',noAhead:'אין שיעורים קרובים.',prog:'התקדמות השיעור',day:'היום שלך',next:'הבא',nf:'התראות',all:'הכול',fold:'כווץ',offL:'ביטול',exam:'מבחן',restore:'שחזר',hw:'שיעורי בית',done:'בוצע',undone:'לא בוצע',overdue:'באיחור',to:'עד',today:'היום',tomorrow:'מחר',noToday:'אין שיעורים היום.',free:'יום פנוי',wk:['השבוע','שבוע הבא','בעוד שבועיים',n=>`בעוד ${n} שבועות`],table:'טבלה',list:'רשימה',own:'אירוע אישי',mkEx:'מבחן',mkOff:'בוטל',mkHw:'ש״ב',bEx:'מבחן',bUnEx:'לא מבחן',bOff:'לא יתקיים',bUnOff:'החזר שיעור',close:'סגור',edit:'ערוך',del:'מחק',newEv:'אירוע חדש',editEv:'עריכת אירוע',title:'שם',from:'מ־',until:'עד',save:'שמור',cancel:'ביטול',errT:'השעה המסיימת חייבת להיות אחרי ההתחלה.',ph:'וולט, ספורט…',hwT:'שיעורי בית',hwNx:'לשיעור הבא',hwDt:'לתאריך',hwErr:'אין שיעור בקורס הזה ביום הזה.',hwPast:'התאריך כבר עבר.',hwSame:'אי אפשר לקבוע לאותו יום, בחר יום מאוחר יותר.',hwPh:'מה נתנו?',add:'הוסף',hwNo:'לא נמצא שיעור הבא בקורס.',set:'הגדרות',theme:'ערכת צבע',lang:'שפה',ths:{green:'בר־אילן',blue:'כחול',pink:'ורוד',orange:'כתום'},ses:'בחינות',addX:'+ הוסף בחינה',newX:'בחינה חדשה',editX:'עריכת בחינה',course:'קורס',moed:'מועד',moeds:['א׳','ב׳','מיוחד'],date:'תאריך',time:'שעה',room:'חדר',noX:'אין עדיין בחינות. הוסף אותן מאינבר ויופיע ספירה לאחור לכל אחת.',passed:'עבר',d:'י׳',h:'ש׳',tu:'עד',map:'מפת הקמפוס',onMap:b=>`בניין ${b} במפה`,bld:'בניין',dw:n=>n==1?'יום':n==2?'ימים':'ימים',evs:n=>`${n} אירועים`}};
 let L=T[ST.lang];
 const EN={'41004-03':'English (Basic)','139240-01':'Yiddish Culture: What Is It?','33175-01':'How to Write a Proverb, Fable, Story, Novel','183047-01':'Inventing Psychology','88195-01':'Discrete Mathematics','88195-02':'Discrete Mathematics','88132-01':'Calculus 1','88132-04':'Calculus 1','88112-01':'Linear Algebra 1','88112-03':'Linear Algebra 1 · Tutorial','88009-01':'Department hours'};
 const SHN={ru:{calc:'Матан',lin:'Линал',lint:'Линал, тиргуль',disc:'Дискр.',eng:'Англ.',dep:'Кафедра','139240':'Идиш','33175':'Формал.','183047':'Психол.'},en:{calc:'Calc',lin:'LinAlg',lint:'LinAlg tut.',disc:'Discrete',eng:'English',dep:'Dept.','139240':'Yiddish','33175':'Writing','183047':'Psych.'},he:{calc:'חדו״א',lin:'ליניארית',lint:'ליניארית תרגיל',disc:'בדידה',eng:'אנגלית',dep:'מחלקה','139240':'יידיש','33175':'כתיבה','183047':'פסיכולוגיה'}};
 const nm=l=>l[2]=='own'?l[3]:ST.lang=='he'?l[4]:ST.lang=='en'?EN[l[5]]||l[3]:l[3];
 const short=l=>{if(l[2]=='own')return l[3];const s=SHN[ST.lang];return l[5]=='88112-03'?s.lint:s[l[2]]||s[l[5].split('-')[0]]};
-// ---------- Карта кампуса: мои корпуса (координаты — доли картинки campus.webp 1709×2184) ----------
-const BLD={'1004':[.4459,.076],'905':[.3569,.1767],'507':[.3721,.3663],'604':[.3768,.4423],'504':[.4225,.4625],'410':[.3967,.5275],'403':[.3967,.5962]};
-const BN={ru:{'403':'Студенческая администрация','410':'Иудаика','504':'Экономика, MBA','507':'Аудитории','604':'Аудитории, междисциплинарные','905':'Образование','1004':'Языки'},en:{'403':'Student Administration','410':'Jewish Studies','504':'Economics, MBA','507':'Classes','604':'Classes, Interdisciplinary','905':'Education','1004':'Languages'},he:{'403':'שירות לסטודנט','410':'מדעי היהדות','504':'כלכלה, מנהע״ס','507':'כיתות','604':'כיתות, בין־תחומיים','905':'חינוך','1004':'שפות'}};
+// ---------- Карта кампуса: все здания с карты (центр ярлыка, доли картинки campus.webp 1709×2184) ----------
+const BLD={'1102':[.5834,.0442],'1103':[.6103,.0549],'1005':[.4766,.0627],'1104':[.6378,.0657],'1105':[.665,.0762],'1004':[.447,.0765],'1002':[.4146,.0932],'1300A':[.7589,.1078],'1501':[.5363,.1273],'906':[.4023,.1552],'902':[.4292,.1754],'905':[.3566,.1763],'1300B':[.8043,.185],'901':[.3994,.1969],'1401':[.5614,.2756],'802':[.3403,.2946],'1502':[.3996,.3068],'510':[.2926,.3306],'509':[.2774,.3489],'801':[.335,.3567],'507':[.3724,.3668],'506':[.4157,.3711],'508':[.2902,.3716],'502':[.3022,.3981],'505':[.4087,.4155],'606':[.2841,.44],'604':[.3593,.4428],'605':[.328,.4478],'504':[.4236,.4629],'503':[.3695,.4769],'501':[.2832,.5183],'411':[.4576,.514],'410':[.3982,.5272],'407':[.5184,.5325],'409':[.3388,.5474],'408':[.3294,.5689],'404':[.3733,.5689],'405':[.4394,.5726],'217':[.2815,.5737],'403':[.3961,.5955],'306':[.5278,.6099],'216':[.2929,.6152],'402':[.4178,.62],'305':[.5524,.6481],'213':[.3283,.6513],'401':[.3956,.6568],'307':[.4441,.6696],'303':[.5734,.6745],'212':[.3318,.6754],'215':[.2817,.6914],'302':[.5854,.6973],'304':[.469,.698],'211':[.3525,.6989],'300':[.5413,.7031],'210':[.3865,.7067],'214':[.2504,.7076],'301':[.5178,.7147],'206':[.3207,.7237],'207':[.3774,.7266],'209':[.2817,.7292],'203':[.3923,.745],'208':[.2826,.7539],'108':[.5184,.7587],'202':[.3528,.7598],'110':[.4462,.7674],'205':[.2937,.7701],'109':[.3877,.7818],'204':[.3081,.7832],'107':[.4874,.7885],'201':[.3329,.793],'105':[.4061,.8036],'106':[.4418,.8052],'104':[.3084,.8191],'103':[.2487,.8228],'102':[.3563,.8372],'101':[.2668,.8674],'100':[.3569,.8828]};
+// названия и что внутри — по странице услуг кампуса biu.ac.il; [рус, англ, иврит]
+const BI={'105':['Мехина','Pre-academic program','מכינה'],'107':['Студенческий союз, «Михлоль»','Student Union, Michlol','אגודת הסטודנטים, מכלול'],'206':['Нано','Nano Center','ננו'],'211':['Химия','Chemistry','כימיה'],'212':['Химия','Chemistry','כימיה'],'213':['Социальные науки (Мексика)','Social Sciences (Mexico)','מדעי החברה (מקסיקו)'],'216':['Математика','Mathematics','מתמטיקה'],'305':['Право','Law','משפטים'],'401':['Библиотека иудаики','Jewish Studies Library','ספריית מדעי היהדות'],'402':['Администрация','Administration','בניין המנהלה'],'403':['Студенческая администрация','Student Administration','שירות לסטודנט'],'405':['Мидраша','Midrasha','מדרשה'],'410':['Иудаика','Jewish Studies','מדעי היהדות'],'411':['Центральная синагога','Central Synagogue','בית הכנסת המרכזי'],'501':['Охрана, бюро находок','Security, Lost & Found','ביטחון, אבדות ומציאות'],'502':['Центр обслуживания студентов','Student Service Center','מרכז שירות לסטודנט'],'504':['Экономика, MBA','Economics, MBA','כלכלה, מנהע״ס'],'507':['Нагель, аудитории','Nagel, classrooms','נגל, כיתות'],'510':['Деканат, «Куб»','Dean of Students, the Cube','דיקנאט, הקובייה'],'604':['Кац, аудитории','Katz, classrooms','כץ, כיתות'],'905':['Образование','Education','חינוך'],'1002':['Философия','Philosophy','פילוסופיה'],'1004':['Корт, языки','Kort, Languages','קורט, שפות'],'1005':['Музыка','Music','מוזיקה'],'1105':['Инженерия','Engineering','הנדסה'],'1300A':['Общежития','Dorms','מעונות'],'1300B':['Общежития','Dorms','מעונות']};
+const AM={'105':'pr','107':'sh re','206':'cf','211':'re','212':'pr pc','213':'pr cf','216':'re','304':'sy','305':'pr lb','306':'cf','401':'pr lb','402':'po fd','404':'pc','405':'cf pr sy','409':'fd','410':'pc re','411':'sy bk','502':'sy','504':'pr lb pc','505':'pc','507':'pr cf sy','510':'re','604':'pr cf pc','605':'pc','901':'pc','905':'pr cf lb','1002':'pr','1004':'fd pc','1005':'pc','1105':'pr cf re','1300A':'sy','1300B':'sy sh'};
+const AMN={cf:['кофе','coffee','קפה','☕'],fd:['еда, ресторан','food','אוכל','🍽'],pc:['компьютерный класс','computer lab','מעבדת מחשבים','💻'],pr:['принтер, копир','print & copy','הדפסה','🖨'],sy:['синагога, молитва','prayer','בית תפילה','🕍'],lb:['библиотека','library','ספרייה','📚'],bk:['банк','bank','בנק','🏦'],po:['почта','post office','דואר','✉'],sh:['магазин','shop','חנות','🛒'],re:['зона отдыха','lounge','פינת מנוחה','🛋']};
+const bName=b=>BI[b]?.[{ru:0,en:1,he:2}[ST.lang]]||'';
+const bAm=b=>(AM[b]||'').split(' ').filter(Boolean);
 const bOf=l=>l[6]?.split(' · ')[0];
 // ---------- Время и даты ----------
 const DN=[],DS=[];
@@ -334,12 +423,38 @@ function fmt(ms){
 	return d?`${d} ${L.d} ${h} ${L.h}`:h?`${h}:${p(m)}:${p(s%60)}`:`${p(m)}:${p(s%60)}`;
 }
 const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c]);
+// ---------- Академический календарь תשפ"ז (biu.ac.il/academic-year) ----------
+const AC=[['A','2026-10-11','2027-01-17'],['XA','2027-01-18','2027-02-28'],['B','2027-03-01','2027-06-25'],['XB','2027-06-27','2027-08-31']];
+const OFF=[['2026-10-27','2026-10-27',['Выборы','Election day','יום בחירות']],['2026-12-04','2026-12-07',['Ханука','Hanukkah','חנוכה']],['2026-12-20','2026-12-20',['Пост 10 Тевета','Fast of 10 Tevet',`צום י' בטבת`]],['2027-03-22','2027-03-24',['Пурим','Purim','פורים']],['2027-04-18','2027-04-30',['Песах','Passover','פסח']],['2027-05-11','2027-05-12',['День памяти и Независимости','Memorial & Independence Day','יום הזיכרון והעצמאות']],['2027-06-04','2027-06-04',['День Иерусалима','Jerusalem Day','יום ירושלים']],['2027-06-10','2027-06-11',['Шавуот','Shavuot','שבועות']]];
+// [дата, с, до | null, причина]: «до» есть — перерыв в занятиях; null — занятия заканчиваются в «с»
+const HN=['Ханука','Hanukkah','חנוכה'];
+const PART=[['2026-10-22','11:00','12:00',['Памяти Рабина','Rabin memorial','עצרת לזכר רבין']],['2026-12-08','16:00',null,HN],['2026-12-09','16:00',null,HN],['2026-12-10','16:00',null,HN],['2027-04-05','11:00','12:30',['Ярмарка карьеры','Career fair','יריד קריירה']],['2027-05-03','18:00',null,['Канун Дня Катастрофы','Holocaust Day eve','ערב יום השואה']],['2027-05-04','11:00','12:00',['День Катастрофы','Holocaust Day','יום השואה']],['2027-05-10','11:00','12:00',['Канун Дня памяти','Memorial Day eve','ערב יום הזיכרון']],['2027-05-10','18:00',null,['Канун Дня памяти','Memorial Day eve','ערב יום הזיכרון']],['2027-06-03','18:00',null,['Канун Дня Иерусалима','Jerusalem Day eve','ערב יום ירושלים']]];
+const tr=a=>a[{ru:0,en:1,he:2}[ST.lang]];
+const holOf=d=>{const s=ymd(d),o=OFF.find(o=>s>=o[0]&&s<=o[1]);return o&&tr(o[2])};
+const semA=d=>{const s=ymd(d);return s>=AC[0][1]&&s<=AC[0][2]};
+function lim(d,l){
+	const s=ymd(d);let r={};
+	for(const[dt,a,b,n]of PART)if(dt==s){
+		if(b==null){if(mi(l[0])>=mi(a))return{off:tr(n)};if(mi(l[1])>mi(a))r={note:`${L.till} ${a}`}}
+		else if(mi(l[0])<mi(b)&&mi(a)<mi(l[1]))r={note:`${a}–${b} ${tr(n)}`};
+	}
+	return r;
+}
 // ---------- Пары, события, домашка ----------
 const kOf=(d,l)=>`${ymd(d)}|${l[0]}|${l[5]}`;
 const crs=l=>l[5].split('-')[0];
 const evL=e=>[e.s,e.e,'own',esc(e.t),'','ev'+e.id,'',''];
-const lessons=d=>[...W[d.getDay()].map(l=>{const k=kOf(d,l);return{l,k,d,off:MK[k]=='off',exam:MK[k]=='exam',dep:l[2]=='dep'}}),...EV.filter(e=>e.d==ymd(d)).map(e=>({l:evL(e),k:`${e.d}|${e.s}|ev${e.id}`,d,own:e}))].sort((a,b)=>mi(a.l[0])-mi(b.l[0]));
+// пары идут только в семестр א׳; праздник или «занятия до 16:00» гасят пару сами
+const lessons=d=>{const h=holOf(d);return[...(semA(d)?W[d.getDay()]:[]).map(l=>{const k=kOf(d,l),c=h?{off:h}:lim(d,l);return{l,k,d,off:MK[k]=='off'||!!c.off,hol:c.off,note:c.note,exam:MK[k]=='exam',dep:l[2]=='dep'}}),...EV.filter(e=>e.d==ymd(d)).map(e=>({l:evL(e),k:`${e.d}|${e.s}|ev${e.id}`,d,own:e}))].sort((a,b)=>mi(a.l[0])-mi(b.l[0]))};
 const real=d=>lessons(d).filter(x=>!x.dep);
+// ---------- Окна между парами (от часа): пометка на дату или на этот день каждую неделю ----------
+const hm=m=>`${p(m/60|0)}:${p(m%60)}`;
+function gaps(d){
+	const I=lessons(d).filter(x=>!x.off&&!x.dep).map(x=>[mi(x.l[0]),mi(x.l[1])]),r=[];let e=null;
+	for(const[a,b]of I){if(e!=null&&a-e>=60){const s=hm(e),k=`${ymd(d)}|${s}`,w=`${d.getDay()}|${s}`;r.push({d,a:e,b:a,s,e:hm(a),k,w,t:k in GP?GP[k]:GPW[w]||'',rep:!(k in GP)&&!!GPW[w]})}e=e==null?b:Math.max(e,b)}
+	return r;
+}
+const gTag=g=>g.t?`<span class="tg t-${g.t}">${L.tg[g.t]}</span>`:'';
 // следующее занятие по тому же предмету после данного (не отменённое)
 function nextOf(x){
 	const c=crs(x.l);
@@ -350,7 +465,7 @@ const hwAt=k=>{const[dt,hm]=k.split('|');return at(pd(dt),hm)};
 // домашка помечает занятие, к которому её задали, и все следующие по предмету, пока не сделана
 const hwOn=x=>!x.own&&!x.dep&&HW.some(h=>!h.done&&h.c==crs(x.l)&&hwAt(h.due)<=at(x.d,x.l[0])&&at(x.d,x.l[0])>=add(new Date(),0));
 const dot=l=>`<i class="dot" style="--c:var(--${l[2]})"></i>`;
-const chips=x=>(x.exam?`<span class="mk ex">${L.mkEx}</span>`:'')+(x.off?`<span class="mk">${L.mkOff}</span>`:'')+(hwOn(x)?`<span class="mk hw">${L.mkHw}</span>`:'');
+const chips=x=>(x.exam?`<span class="mk ex">${L.mkEx}</span>`:'')+(x.hol?`<span class="mk hl">${x.hol}</span>`:x.off?`<span class="mk">${L.mkOff}</span>`:'')+(x.note?`<span class="mk hl">${x.note}</span>`:'')+(AB[x.k]?`<span class="mk ab">${L.mkAb}</span>`:'')+(hwOn(x)?`<span class="mk hw">${L.mkHw}</span>`:'');
 const cls=x=>(x.off?' off':'')+(x.exam?' exam':'')+(x.dep?' dep':'')+(x.own?' own':'');
 const heb=x=>x.own?'':ST.lang=='he'?x.l[5]:`${x.l[4]} · ${x.l[5]}`;
 const rg=(a,b)=>`<span class="tt" dir="ltr">${a}–${b}</span>`;
@@ -380,9 +495,10 @@ function main(s,n){
 	else if(a){
 		sub=a;then=b;T1=a.at;
 		const prev=s.L.filter(x=>!x.off&&mi(x.l[1])<=s.t).at(-1),st=a.own?L.stE:L.stL;
-		lab=ymd(a.d)!=ymd(n)?`${s.L.some(x=>!x.off)?L.noMore:s.L.length?L.allOff:''}${L.untilNext}${whenD(a.d,n)}`:(prev&&mi(a.l[0])-mi(prev.l[1])<=30?L.brk:'')+st;
+		const g=gaps(n).find(g=>s.t>=g.a&&s.t<g.b);
+		lab=ymd(a.d)!=ymd(n)?`${holOf(n)?holOf(n)+' · ':s.L.some(x=>!x.off)?L.noMore:s.L.length?L.allOff:''}${L.untilNext}${whenD(a.d,n)}`:g?`${L.win}${g.t?' · '+L.tg[g.t]:''} · ${st}`:(prev&&mi(a.l[0])-mi(prev.l[1])<=30?L.brk:'')+st;
 	}
-	if(s.cur?.off)h+=`<div class="ln"><span>${s.cur.l[0]}</span><span>${nm(s.cur.l)}: ${L.mkOff}</span></div>`;
+	if(s.cur?.off)h+=`<div class="ln"><span>${s.cur.l[0]}</span><span>${nm(s.cur.l)}: ${s.cur.hol||L.mkOff}</span></div>`;
 	if(sub){
 		h+=`<button class="hero${sub.exam?' exam':''}" data-o="${sub.k}"><span class="lb">${lab}</span><div class="tmr"><span class="dd" id="t1d" hidden><b></b><small></small></span><b id="t1"></b><span class="un">${L.tu}</span></div><div class="hc"><div class="nm">${dot(sub.l)}${nm(sub.l)}${chips(sub)}</div><div class="mt">${[rg(sub.l[0],sub.l[1]),mt(sub)].filter(Boolean).join(' · ')}</div>${heb(sub)?`<div class="heb">${heb(sub)}</div>`:''}`;
 		if(PG)h+=`<div class="pgh"><span class="lb">${L.prog}</span><span class="lb" id="pgt"></span></div><div class="pg"><i id="pg"></i></div><div class="pgl"><span>${c.l[0]}</span><span>${c.l[1]}</span></div>`;
@@ -410,17 +526,18 @@ function main(s,n){
 }
 // ---------- «Сегодня» ----------
 function today(s,n){
-	const Ls=lessons(n),P=56;
-	if(!Ls.length){$('v1').innerHTML=`<p class="empty">${L.noToday}</p>`;return}
+	const Ls=lessons(n),P=56,hd=holOf(n);
+	if(!Ls.length){$('v1').innerHTML=`${hd?`<p class="hol">${hd}</p>`:''}<p class="empty">${L.noToday}</p>`;return}
 	const h0=Math.floor(Math.min(...Ls.map(x=>mi(x.l[0])))/60),h1=Math.ceil(Math.max(...Ls.map(x=>mi(x.l[1])))/60),y=m=>(m-h0*60)/60*P;
-	let h=`<div class="tl" style="height:${(h1-h0)*P}px">`;
+	let h=`${hd?`<p class="hol">${hd}</p>`:''}<div class="tl" style="height:${(h1-h0)*P}px">`;
 	for(let i=h0;i<=h1;i++)h+=`<div class="hr" style="top:${(i-h0)*P}px"><span>${p(i)}:00</span></div>`;
-	const col=new Map,ends=[];
-	for(const x of Ls){let j=ends.findIndex(e=>e<=mi(x.l[0]));if(j<0)j=ends.push(0)-1;ends[j]=mi(x.l[1]);col.set(x,j)}
-	for(const x of Ls){
-		const ov=Ls.filter(z=>mi(z.l[0])<mi(x.l[1])&&mi(x.l[0])<mi(z.l[1])),w=Math.max(...ov.map(z=>col.get(z)))+1,j=col.get(x);
-		const pos=`top:${y(mi(x.l[0]))+2}px;height:${y(mi(x.l[1]))-y(mi(x.l[0]))-4}px${w>1?`;inset-inline-start:calc(48px + ${j}*(100% - 48px)/${w});width:calc((100% - 48px)/${w} - 4px)`:''}`;
-		h+=`<button class="ev${cls(x)}${!x.dep&&s.t>=mi(x.l[1])?' past':''}${x.k==s.cur?.k?' cur':''}" style="${pos}"${x.dep?' tabindex="-1"':` data-o="${x.k}"`}><div class="tt">${rg(x.l[0],x.l[1])}${chips(x)}</div><div class="nm">${x.dep?'':dot(x.l)}${nm(x.l)}</div><div class="mt">${x.l[6]||''}</div></button>`;
+	// окна раскладываются по колонкам вместе с парами, чтобы не налезать на часы кафедры
+	const It=[...Ls,...gaps(n).map(g=>({g,l:[g.s,g.e]}))].sort((a,b)=>mi(a.l[0])-mi(b.l[0])),col=new Map,ends=[];
+	for(const x of It){let j=ends.findIndex(e=>e<=mi(x.l[0]));if(j<0)j=ends.push(0)-1;ends[j]=mi(x.l[1]);col.set(x,j)}
+	for(const x of It){
+		const ov=It.filter(z=>mi(z.l[0])<mi(x.l[1])&&mi(x.l[0])<mi(z.l[1])),w=Math.max(...ov.map(z=>col.get(z)))+1,j=col.get(x);
+		const pos=`top:${y(mi(x.l[0]))+2}px;height:${y(mi(x.l[1]))-y(mi(x.l[0]))-4}px${w>1?`;inset-inline-start:calc(48px + ${j}*(100% - 48px)/${w});width:calc((100% - 48px)/${w} - 4px)`:''}`,g=x.g;
+		h+=g?`<button class="gap${g.t?' t-'+g.t:''}" style="${pos}" data-gp="${g.k}"><span class="lb">${L.win} · ${L.dur(g.b-g.a)}</span>${g.t?`<b>${L.tg[g.t]}</b>`:`<small>${L.tagIt}</small>`}</button>`:`<button class="ev${cls(x)}${!x.dep&&s.t>=mi(x.l[1])?' past':''}${x.k==s.cur?.k?' cur':''}" style="${pos}"${x.dep?' tabindex="-1"':` data-o="${x.k}"`}><div class="tt">${rg(x.l[0],x.l[1])}${chips(x)}</div><div class="nm">${x.dep?'':dot(x.l)}${nm(x.l)}</div><div class="mt">${x.l[6]||''}</div></button>`;
 	}
 	if(s.t>=h0*60&&s.t<=h1*60)h+=`<div class="now" style="top:${y(s.t)}px"></div>`;
 	$('v1').innerHTML=h+'</div>';
@@ -447,8 +564,8 @@ function week(){
 			}).join('')+'</div>';
 		}).join('')+'</div>';
 	}else h+=D.map((d,i)=>{
-		const Ls=lessons(d);
-		return `<div class="day${ymd(d)==ymd(n)?' today':''}"><div class="dh"><b>${DN[i]}</b><span>${dm(d)}</span>${ST.lang=='he'?'':`<i>${DHe[i]}</i>`}<button class="add" data-add="${ymd(d)}" aria-label="+">+</button></div>${Ls.length?`<div class="sheet">${Ls.map(x=>`<button class="rw${cls(x)}"${x.dep?' tabindex="-1"':` data-o="${x.k}"`}><span class="tt">${x.l[0]}<small>${x.l[1]}</small></span><span><div class="nm">${x.dep?'':dot(x.l)}${nm(x.l)}${chips(x)}</div><div class="mt">${x.own?L.own:mt(x)||x.l[5]}</div></span></button>`).join('')}</div>`:`<p class="free">${L.free}</p>`}</div>`;
+		const Ls=lessons(d),hd=holOf(d),R=[...Ls.map(x=>[mi(x.l[0]),`<button class="rw${cls(x)}"${x.dep?' tabindex="-1"':` data-o="${x.k}"`}><span class="tt">${x.l[0]}<small>${x.l[1]}</small></span><span><div class="nm">${x.dep?'':dot(x.l)}${nm(x.l)}${chips(x)}</div><div class="mt">${x.own?L.own:mt(x)||x.l[5]}</div></span></button>`]),...gaps(d).map(g=>[g.a,`<button class="rw gr${g.t?' t-'+g.t:''}" data-gp="${g.k}"><span class="tt">${g.s}<small>${g.e}</small></span><span><div class="nm">${L.win} · ${L.dur(g.b-g.a)}</div><div class="mt">${g.t?L.tg[g.t]+(g.rep?' · '+L.wkly:''):L.tagIt}</div></span></button>`])].sort((a,b)=>a[0]-b[0]);
+		return `<div class="day${ymd(d)==ymd(n)?' today':''}"><div class="dh"><b>${DN[i]}</b><span>${dm(d)}</span>${ST.lang=='he'?'':`<i>${DHe[i]}</i>`}<button class="add" data-add="${ymd(d)}" aria-label="+">+</button></div>${hd?`<p class="hol">${hd}</p>`:''}${R.length?`<div class="sheet">${R.map(r=>r[1]).join('')}</div>`:hd?'':`<p class="free">${L.free}</p>`}</div>`;
 	}).join('');
 	$('v2').innerHTML=h;
 }
@@ -458,8 +575,80 @@ const xn=x=>(x.c&&new Map(COURSES()).get(x.c))||x.n;
 function session(n){
 	const r=SX.map(x=>({x,a:at(pd(x.d),x.s)})).sort((a,b)=>a.a-b.a);
 	let h=r.length?`<div class="ses">${r.map(({x,a},i)=>`<button class="xr${a<n?' past':''}" data-sx="${x.id}"><span class="nm">${esc(xn(x))} · ${L.moed} ${L.moeds[x.m]}</span><b ${a<n?'':`id="sx${i}"`}>${a<n?L.passed:''}</b><span class="mt">${DN[a.getDay()]}, ${dm(a)} · ${x.s}${x.r?` · ${esc(x.r)}`:''}</span></button>`).join('')}</div>`:`<p class="empty">${L.noX}</p>`;
-	$('v3').innerHTML=h+`<button class="addx" id="addx">${L.addX}</button>`;
+	$('v3').innerHTML=semCard(n)+h+`<button class="addx" id="addx">${L.addX}</button>`;
 	SXT=r.map(({a})=>a);
+}
+// карточка семестра: сколько осталось, неделя, ближайший выходной
+const dd=(a,n)=>Math.round((pd(a)-add(n,0))/864e5);
+const wkOf=n=>{const c=AC.find(a=>a[0].length==1&&ymd(n)>=a[1]&&ymd(n)<=a[2]);return c&&Math.floor((add(n,0)-pd(c[1]))/6048e5)+1};
+function semCard(n){
+	const s=ymd(n),cur=AC.find(a=>s>=a[1]&&s<=a[2]),nx=AC.find(a=>a[1]>s);let h;
+	if(cur){
+		const N=dd(cur[2],n)+1,T=dd(cur[2],pd(cur[1]))+1;
+		h=`<div class="sem"><span class="lb">${L.phs[cur[0]]}${wkOf(n)?` · ${L.wkN(wkOf(n),Math.ceil(T/7))}`:''}</span><div class="big"><b>${N}</b><small>${L.dLeft(N)}</small></div><div class="pg"><i style="transform:scaleX(${1-N/T})"></i></div><div class="pgl"><span>${dm(pd(cur[1]))}</span><span>${dm(pd(cur[2]))}</span></div>`;
+		if(nx)h+=`<p class="sm">${L.phs[nx[0]]} · ${dm(pd(nx[1]))} · ${L.inD(dd(nx[1],n))}</p>`;
+	}else if(nx){const k=dd(nx[1],n);h=`<div class="sem"><span class="lb">${L.phs[nx[0]]}</span><div class="big"><b>${k}</b><small>${L.dTill(k)}</small></div>`}
+	else return'';
+	const o=OFF.find(o=>o[1]>=s);if(o)h+=`<p class="sm">${L.nextOff}: ${tr(o[2])} · ${dm(pd(o[0]))}${o[0]>s?` · ${L.inD(dd(o[0],n))}`:''}</p>`;
+	return h+'</div>';
+}
+// ---------- «Учёба»: оценки и ממוצע, посещаемость ----------
+const NZ={'88195':6,'88132':6,'88112':6,'41004':0};
+const gOf=c=>({z:NZ[c]??2,f:'',k:[],...GR[c]});
+const has=v=>v!==''&&v!=null;
+function gradeG(g){
+	if(has(g.f))return{v:+g.f,fin:1};
+	const k=g.k.filter(x=>has(x.g)&&+x.w>0),w=k.reduce((s,x)=>s+ +x.w,0);
+	return w?{v:k.reduce((s,x)=>s+x.w*x.g,0)/w,fin:w>=100,w,s:k.reduce((s,x)=>s+x.w*x.g,0)}:null;
+}
+function avg(){let s=0,z=0,pr=0;for(const[c]of COURSES()){const g=gOf(c),r=gradeG(g);if(r&&+g.z>0){s+=r.v*g.z;z+=+g.z;if(!r.fin)pr=1}}return z?{v:s/z,z,pr}:null}
+// прошедшие пары семестра; отменённые, праздники и укороченные дни сюда не попадают
+function held(n){const r=new Map;for(let d=pd(AC[0][1]);d<=n&&ymd(d)<=AC[0][2];d=add(d,1))for(const x of real(d))if(!x.own&&!x.off&&at(d,x.l[0])<=n){const c=crs(x.l);if(!r.has(c))r.set(c,[]);r.get(c).push(x)}return r}
+let SUB=+ls('sub',0),ABO=null,GF=null;
+const g1=v=>v==null?'—':String(Math.round(v*10)/10);
+function study(n){
+	let h=`<div class="seg"><button data-sub="0"${SUB?'':' class="on"'}>${L.grades}</button><button data-sub="1"${SUB?' class="on"':''}>${L.att}</button><i style="transform:translateX(${SUB*(ST.lang=='he'?-100:100)}%)"></i></div>`;
+	if(!SUB){
+		const a=avg();
+		h+=`<div class="avg"><span class="lb">${L.avg}</span><div class="big"><b dir="ltr">${a?g1(a.v):'—'}</b><small>${a?L.byNz(a.z)+(a.pr?' · '+L.prov:''):L.noGr}</small></div></div><div class="ses">`;
+		for(const[c,name]of COURSES()){const g=gOf(c),r=gradeG(g);h+=`<button class="xr gr" data-gr="${c}"><span class="nm">${esc(name)}</span><b dir="ltr"${r&&!r.fin?' class="pv"':''}>${r?g1(r.v):'—'}</b><span class="mt">${+g.z?`${g.z} ${L.nz}`:L.noAvg}${g.k.length?` · ${g.k.map(x=>`${esc(x.n||'?')} ${x.w}%`).join(', ')}`:''}</span></button>`}
+		h+='</div>';
+	}else{
+		const H=held(n);
+		if(!H.size)h+=`<p class="empty">${L.noHeld}</p>`;
+		else{
+			let T=0,M=0;for(const v of H.values()){T+=v.length;M+=v.filter(x=>AB[x.k]).length}
+			h+=`<div class="avg"><span class="lb">${L.attAll}</span><div class="big"><b dir="ltr">${T-M}/${T}</b><small>${L.missN(M)}</small></div></div><div class="ses">`;
+			for(const[c,name]of COURSES()){
+				const v=H.get(c);if(!v)continue;const m=v.filter(x=>AB[x.k]).length;
+				h+=`<div class="att${ABO==c?' open':''}"><button class="xr" data-abo="${c}"><span class="nm">${esc(name)}</span><b dir="ltr">${v.length-m}/${v.length}</b><span class="mt">${L.missN(m)}</span><span class="bar"><i style="transform:scaleX(${(v.length-m)/v.length})"></i></span></button>${ABO==c?`<div class="al">${v.slice().reverse().map(x=>`<button class="ar${AB[x.k]?' ms':''}" data-ab="${x.k}"><span>${DS[x.d.getDay()]}, ${dm(x.d)} · ${x.l[0]}</span><b>${AB[x.k]?L.missed:L.was}</b></button>`).join('')}</div>`:''}</div>`;
+			}
+			h+=`</div><p class="sm">${L.attHint}</p>`;
+		}
+	}
+	$('v4').innerHTML=h;
+}
+function seg(){
+	if(RM)return;const i=document.querySelector('.seg i'),r=ST.lang=='he'?-100:100;
+	i.animate([{transform:`translateX(${(1-SUB)*r}%)`},{transform:`translateX(${SUB*r}%)`}],{duration:420,easing:ease});
+	$('v4').querySelectorAll('.avg,.ses>*').forEach((e,j)=>e.animate([{opacity:0,transform:'translateY(10px)'},{opacity:1,transform:'none'}],{duration:340,delay:j*30,easing:ease,fill:'backwards'}));
+}
+function grForm(c){
+	if(GF?.c!=c)GF={c,...structuredClone(gOf(c))};
+	const g=GF,name=new Map(COURSES()).get(c);
+	$('md').innerHTML=`<form class="sh fm" id="fm"><small>${L.grades}</small><div class="nm">${esc(name)}</div><div class="tm2"><label>${L.nz}<input id="g-z" type="number" inputmode="decimal" min="0" max="20" step=".5" value="${g.z}"></label><label>${L.fin}<input id="g-f" type="number" inputmode="decimal" min="0" max="100" value="${g.f}" placeholder="—"></label></div><span class="lb sp">${L.parts}</span>${g.k.map((x,i)=>`<div class="gk"><input data-gi="${i}" data-gf="n" maxlength="24" placeholder="${L.partPh}" value="${esc(x.n)}"><input data-gi="${i}" data-gf="w" type="number" inputmode="decimal" placeholder="%" value="${x.w}"><input data-gi="${i}" data-gf="g" type="number" inputmode="decimal" placeholder="${L.score}" value="${x.g}"><button type="button" data-gdel="${i}" aria-label="${L.del}">×</button></div>`).join('')}<button type="button" class="addp" data-gadd>${L.addPart}</button><div class="calc"><label>${L.target}<input id="g-t" type="number" inputmode="decimal" value="${ls('tgt',85)}"></label><p id="g-c"></p></div><div class="bt"><button type="submit" class="on">${L.save}</button><button type="button" class="cl">${L.cancel}</button></div></form>`;
+	calcT();
+	$('fm').onsubmit=ev=>{ev.preventDefault();GR[c]={z:+GF.z||0,f:has(GF.f)?+GF.f:'',k:GF.k.map(x=>({n:x.n,w:+x.w||0,g:has(x.g)?+x.g:''}))};put('gr',GR);GF=null;closeM();refresh()};
+}
+// сколько нужно набрать на оставшихся частях, чтобы выйти на цель
+function calcT(){
+	const g=GF,r=gradeG({...g,f:''}),T=+$('g-t').value||0,w=r?.w||0,R=100-w;put0('tgt',T);
+	const x=R>0&&(T*100-(r?.s||0))/R;
+	$('g-c').textContent=has(g.f)?L.finSet:!g.k.length?L.calcNo:R<=0?`${L.result}: ${g1(r.v)}`:x<=0?L.calcOk:x>100?L.calcBad(g1(x)):L.calcNeed(g1(x),R);
+}
+function gpView(k){
+	const g=gaps(pd(k.split('|')[0])).find(g=>g.k==k);if(!g){open=null;$('md').hidden=true;return}
+	$('md').innerHTML=`<div class="sh"><small>${DN[g.d.getDay()]}, ${dm(g.d)} · ${rg(g.s,g.e)}</small><div class="nm">${L.win} · ${L.dur(g.b-g.a)}</div><div class="opt tgo">${['st','wk','rs'].map(t=>`<button type="button" data-tg="${t}" class="t-${t}${g.t==t?' on':''}">${L.tg[t]}</button>`).join('')}<button type="button" data-tg=""${g.t?'':' class="on"'}>${L.noTag}</button></div><label class="chk"><input type="checkbox" id="g-rep"${k in GP?'':' checked'}>${L.everyWk(DN[g.d.getDay()])}</label><div class="bt"><button type="button" class="cl">${L.close}</button></div></div>`;
 }
 let SXT=[];
 // ---------- Окна ----------
@@ -471,10 +660,13 @@ function modal(){
 	else if(kind=='set')settings();
 	else if(kind=='sx')sxForm(v);
 	else if(kind=='map')mapView(v);
+	else if(kind=='gr')grForm(v);
+	else if(kind=='gp')gpView(open.slice(3));
 	else{
 		const d=pd(kind),x=lessons(d).find(x=>x.k==open);
 		if(!x){open=null;m.hidden=true;return}
-		const bt=x.own?`<button data-ed="${x.own.id}">${L.edit}</button><button data-del="${x.own.id}">${L.del}</button>`:`<button data-m="exam"${x.exam?' class="on"':''}>${x.exam?L.bUnEx:L.bEx}</button><button data-m="off"${x.off?' class="on"':''}>${x.off?L.bUnOff:L.bOff}</button>`;
+		const ab=!x.own&&!x.off&&at(d,x.l[0])<=new Date()?`<button data-abm${AB[x.k]?' class="on"':''}>${AB[x.k]?L.bWas:L.bMiss}</button>`:'';
+		const bt=x.own?`<button data-ed="${x.own.id}">${L.edit}</button><button data-del="${x.own.id}">${L.del}</button>`:x.hol?ab:`<button data-m="exam"${x.exam?' class="on"':''}>${x.exam?L.bUnEx:L.bEx}</button><button data-m="off"${MK[x.k]=='off'?' class="on"':''}>${MK[x.k]=='off'?L.bUnOff:L.bOff}</button>${ab}`;
 		let hw='';
 		if(!x.own){
 			const c=crs(x.l),list=HW.filter(w=>w.c==c).sort((a,b)=>a.done-b.done||hwAt(a.due)-hwAt(b.due)),nx=nextOf(x);
@@ -511,13 +703,14 @@ function sxForm(id){
 // Просмотр карты: перетаскивание, щипок, двойной тап, колесо мыши
 function mapView(b){
 	const m=$('md');
-	m.innerHTML=`<div class="sh mp"><div class="mph"><div><small>${L.map}</small><div class="nm">${b?`${L.bld} ${b}`:L.map}</div>${b?`<div class="mt">${BN[ST.lang][b]}</div>`:''}</div><button type="button" class="cl" aria-label="${L.close}">×</button></div><div class="vp" id="vp"><div class="mi" id="mi"><img src="campus.webp" width="1709" height="2184" alt="${L.map}" draggable="false">${Object.entries(BLD).map(([k,[x,y]])=>`<i class="pin${k==b?' on':''}" style="left:${x*100}%;top:${y*100}%"><span>${k}</span></i>`).join('')}</div></div><div class="opt bl">${Object.keys(BLD).map(k=>`<button type="button" data-map="${k}"${k==b?' class="on"':''}>${k}</button>`).join('')}</div></div>`;
-	const vp=$('vp'),mi=$('mi'),W=1709,H=2184,P=new Map,vw=vp.clientWidth,vh=vp.clientHeight,s0=vw/W;
+	const my=[...new Set(W.flat().map(bOf).filter(k=>BLD[k]))],am=b&&bAm(b);
+	m.innerHTML=`<div class="sh mp"><div class="mph"><div><small>${L.map}</small><div class="nm">${b?`${L.bld} ${b}`:L.map}</div>${b&&(bName(b)||am.length)?`<div class="mt">${[bName(b),...am.map(a=>AMN[a][3]+' '+tr(AMN[a]))].filter(Boolean).join(' · ')}</div>`:''}</div><button type="button" class="cl" aria-label="${L.close}">×</button></div><div class="msw"><input id="ms" type="search" autocomplete="off" placeholder="${L.mSearch}" value="${esc(MQ)}"><div class="msr" id="msr"></div></div><div class="vp" id="vp"><div class="mi" id="mi"><img src="campus.webp" width="1709" height="2184" alt="${L.map}" draggable="false">${Object.entries(BLD).map(([k,[x,y]])=>`<i class="pin${k==b?' on':''}" style="left:${x*100}%;top:${y*100}%"><span>${k}</span></i>`).join('')}</div></div><span class="lb sp">${L.myB}</span><div class="opt bl">${my.map(k=>`<button type="button" data-map="${k}"${k==b?' class="on"':''}>${k}</button>`).join('')}</div></div>`;
+	const vp=$('vp'),mi=$('mi'),IW=1709,IH=2184,P=new Map,vw=vp.clientWidth,vh=vp.clientHeight,s0=vw/IW;
 	let s=b?s0*2.6:s0,x=0,y=0,last=0,pd0=0;
-	const set=()=>{s=Math.min(Math.max(s,s0),s0*6);x=Math.min(0,Math.max(vw-W*s,x));y=H*s<vh?(vh-H*s)/2:Math.min(0,Math.max(vh-H*s,y));mi.style.transform=`translate(${x}px,${y}px) scale(${s})`;mi.style.setProperty('--k',1/s)};
+	const set=()=>{s=Math.min(Math.max(s,s0),s0*6);x=Math.min(0,Math.max(vw-IW*s,x));y=IH*s<vh?(vh-IH*s)/2:Math.min(0,Math.max(vh-IH*s,y));mi.style.transform=`translate(${x}px,${y}px) scale(${s})`;mi.style.setProperty('--k',1/s)};
 	const zoom=(f,cx,cy)=>{const n=Math.min(Math.max(s*f,s0),s0*6);x=cx-(cx-x)*n/s;y=cy-(cy-y)*n/s;s=n;set()};
-	if(b){const[bx,by]=BLD[b];x=vw/2-bx*W*s;y=vh/2-by*H*s}
-	set();
+	if(b){const[bx,by]=BLD[b];x=vw/2-bx*IW*s;y=vh/2-by*IH*s}
+	set();if(MQ)msearch(MQ);
 	const rel=e=>{const r=vp.getBoundingClientRect();return[e.clientX-r.left,e.clientY-r.top]};
 	vp.onpointerdown=e=>{vp.setPointerCapture(e.pointerId);P.set(e.pointerId,[e.clientX,e.clientY]);const t=Date.now();if(P.size==1&&t-last<300)zoom(2,...rel(e));last=t};
 	vp.onpointermove=e=>{
@@ -528,17 +721,97 @@ function mapView(b){
 	vp.onpointerup=vp.onpointercancel=e=>{P.delete(e.pointerId);if(P.size<2)pd0=0};
 	vp.onwheel=e=>{e.preventDefault();zoom(e.deltaY<0?1.2:1/1.2,...rel(e))};
 }
+// поиск по карте: номер, название корпуса или что внутри (кофе, библиотека…) на любом из трёх языков
+let MQ='';
+function msearch(q){
+	MQ=q;const s=q.trim().toLowerCase(),r=$('msr');if(!r)return;
+	if(!s){r.innerHTML='';return}
+	const hit=Object.keys(BLD).filter(b=>b.toLowerCase().startsWith(s)||(BI[b]||[]).some(n=>n.toLowerCase().includes(s))||bAm(b).some(a=>AMN[a].slice(0,3).some(n=>n.toLowerCase().includes(s)))).sort((a,c)=>c.toLowerCase().startsWith(s)-a.toLowerCase().startsWith(s)).slice(0,8);
+	r.innerHTML=hit.length?hit.map(b=>`<button type="button" data-map="${b}"><b>${b}</b><span>${bName(b)}</span><i>${bAm(b).map(a=>AMN[a][3]).join('')}</i></button>`).join(''):`<p>${L.mNone}</p>`;
+}
+const PIN='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg>';
 const GEAR='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>';
 const THS={green:['#4fd69c','#0b2620'],blue:['#6fb3ff','#0b1a2e'],pink:['#ff8fb1','#2a1420'],orange:['#ffa45c','#26160b']};
+const on=(c,t,a)=>`<button type="button" ${a}${c?' class="on"':''}>${t}</button>`;
 function settings(){
-	$('md').innerHTML=`<div class="sh"><div class="nm">${L.set}</div><div class="sec"><span class="lb">${L.theme}</span><div class="opt">${Object.keys(THS).map(t=>`<button data-th="${t}"${ST.th==t?' class="on"':''}><i class="sw" style="--s:${THS[t][0]};--b:${THS[t][1]}"></i>${L.ths[t]}</button>`).join('')}</div></div><div class="sec"><span class="lb">${L.lang}</span><div class="opt">${[['ru','Русский'],['en','English'],['he','עברית']].map(([k,n])=>`<button data-lg="${k}"${ST.lang==k?' class="on"':''}>${n}</button>`).join('')}</div></div><div class="bt"><button type="button" data-map="">${L.map}</button><button type="button" class="cl">${L.close}</button></div></div>`;
+	const K=ST.pk;
+	$('md').innerHTML=`<div class="sh fm st"><div class="nm">${L.set}</div><div class="sec"><span class="lb">${L.theme}</span><div class="opt">${Object.keys(THS).map(t=>`<button data-th="${t}"${ST.th==t?' class="on"':''}><i class="sw" style="--s:${THS[t][0]};--b:${THS[t][1]}"></i>${L.ths[t]}</button>`).join('')}</div></div><div class="sec"><span class="lb">${L.lang}</span><div class="opt">${[['ru','Русский'],['en','English'],['he','עברית']].map(([k,n])=>`<button data-lg="${k}"${ST.lang==k?' class="on"':''}>${n}</button>`).join('')}</div></div>
+<div class="sec"><span class="lb">${L.push}</span><div class="opt">${on(ST.pu,ST.pu?L.pOn:L.pOff,'data-pu')}</div>${ST.pu?`<label>${L.pTopic}<div class="row"><input id="p-t" autocomplete="off" spellcheck="false" value="${esc(ST.pt)}"><button type="button" data-cp>${L.copy}</button></div></label><p class="hint">${L.pHow}</p><div class="opt">${on(K.l,L.pkL,'data-pk="l"')}${on(K.m,L.pkM,'data-pk="m"')}${on(K.x,L.pkX,'data-pk="x"')}</div>${K.l?`<span class="lb sp">${L.pLead}</span><div class="opt">${[5,10,15,30].map(v=>on(ST.pl==v,`${v} ${L.min}`,`data-pl="${v}"`)).join('')}</div>`:''}${K.m?`<label>${L.pMorn}<input id="p-m" type="time" value="${ST.pm}"></label>`:''}<div class="opt">${on(0,L.pTest,'data-pt')}</div><p class="hint" id="pst">${pmsg}</p>`:''}</div>
+<div class="sec"><span class="lb">${L.sync}</span>${tok?`<p class="hint">${L.gOk}</p><div class="opt">${on(0,L.gNow,'data-gs')}${on(0,L.gOut,'data-gx')}</div>`:`<label>${L.gTok}<input id="gh-t" type="password" autocomplete="off" placeholder="github_pat_…"></label><p class="hint">${L.gHow}</p>`}<p class="hint" id="gst">${gmsg()}</p></div>
+<div class="bt"><button type="button" data-map="">${L.map}</button><button type="button" class="cl">${L.close}</button></div></div>`;
 }
+// ---------- Бэкап в GitHub: ветка data репозитория pary, файл calendula.json ----------
+const GH='https://api.github.com/repos/LeviSheyn/pary/contents/calendula.json';
+let tok='',gsha=null,gerr='',gT,pmsg='';try{tok=localStorage.ghTok||''}catch(e){}
+const b64e=s=>{let b='';for(const c of new TextEncoder().encode(s))b+=String.fromCharCode(c);return btoa(b)};
+const b64d=s=>new TextDecoder().decode(Uint8Array.from(atob(s.replace(/\s/g,'')),c=>c.charCodeAt(0)));
+function gmsg(){const t=ls('gst',0),m=gerr?L.gErr(gerr):t?L.gLast(new Date(t).toLocaleString(L.loc,{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})):'';const e=$('gst');if(e)e.textContent=m;return m}
+function touch(){put0('ts',Date.now());clearTimeout(gT);gT=setTimeout(()=>{sync();npush()},3000)}
+let syncing=0;
+async function sync(force){
+	if(!tok||syncing)return;syncing=1;
+	try{
+		const h={Authorization:'Bearer '+tok,Accept:'application/vnd.github+json'},r=await fetch(GH+'?ref=data&_='+Date.now(),{headers:h,cache:'no-store'});
+		let rem=null;if(r.ok){const j=await r.json();gsha=j.sha;rem=JSON.parse(b64d(j.content))}else if(r.status!=404)throw r.status;
+		const lt=+ls('ts',0);
+		if(rem&&rem.ts>lt){
+			for(const k of SK)if(rem[k]!=null)put0(k,rem[k]);put0('ts',rem.ts);
+			load();apply();refresh();if(open)modal();npush();
+		}else if(!rem||lt>rem.ts||force||Date.now()-ls('qts',0)>1728e5){
+			const o={ts:lt||Date.now(),q:plan(30)};for(const k of SK)o[k]=ls(k,null);
+			const w=await fetch(GH,{method:'PUT',headers:h,body:JSON.stringify({message:'Calendula sync',content:b64e(JSON.stringify(o)),branch:'data',...(gsha?{sha:gsha}:{})})});
+			if(!w.ok)throw w.status;gsha=(await w.json()).content.sha;put0('qts',Date.now());
+		}
+		gerr='';put0('gst',Date.now());
+	}catch(e){gerr=String(e.message||e)}
+	syncing=0;gmsg();
+}
+// ---------- Пуши через ntfy.sh: каждое уведомление — отложенное сообщение со своим id (повтор заменяет, DELETE отменяет) ----------
+const NT='https://ntfy.sh/',APP='https://levisheyn.github.io/pary/';
+const sid=(...a)=>a.join('-').replace(/[^\w-]/g,'');
+function plan(N){
+	const n=new Date(),r=[],K=ST.pk,ld=ST.pl||15;
+	for(let i=0;i<N;i++){
+		const d=add(n,i),Ls=real(d),D=ymd(d).replace(/-/g,'');
+		if(K.l)for(const x of Ls)if(!x.off&&!x.own)r.push({id:sid('l',D,x.l[0],crs(x.l)),at:at(d,x.l[0])/1e3-ld*60,t:`${x.exam?L.exam+': ':''}${short(x.l)}${x.l[6]?' · '+x.l[6]:''}`,m:`${L.pIn(ld)} · ${x.l[0]}–${x.l[1]}${x.l[7]?' · '+x.l[7]:''}${x.note?' · '+x.note:''}`,g:[x.exam?'rotating_light':'books'],p:x.exam?4:3});
+		if(K.m){
+			const go=Ls.filter(x=>!x.off),of=Ls.filter(x=>x.off&&!x.own),hd=holOf(d),xs=K.x?SX.filter(x=>x.d==ymd(d)):[];
+			if(go.length||of.length||xs.length){
+				const m=[...xs.map(x=>`❗ ${x.s} ${xn(x)} · ${L.moed} ${L.moeds[x.m]}${x.r?' · '+x.r:''}`),...go.map(x=>`${x.l[0]} ${short(x.l)}${x.l[6]?' · '+x.l[6]:''}`),...(of.length?[`${hd||L.offL}: ${of.map(x=>short(x.l)).join(', ')}`]:[])];
+				r.push({id:sid('m',D),at:at(d,ST.pm)/1e3,t:hd&&!go.length?hd:L.pDay(go.filter(x=>!x.own).length),m:m.join('\n'),g:['sunrise'],p:3});
+			}
+		}
+	}
+	if(K.x)for(const x of exams(n)){
+		const e=add(x.at,-1),k=sid('x',ymd(x.at),p(x.at.getHours())+p(x.at.getMinutes()));
+		r.push({id:k+'-e',at:at(e,'19:00')/1e3,t:`${L.pTmrX}: ${x.name}`,m:`${p(x.at.getHours())}:${p(x.at.getMinutes())}${x.room?' · '+x.room:''}`,g:['rotating_light'],p:4});
+		if(x.sx)r.push({id:k+'-h',at:x.at/1e3-7200,t:`${L.exam}: ${x.name}`,m:`${L.pIn(120)}${x.room?' · '+x.room:''}`,g:['rotating_light'],p:5});
+	}
+	const t0=n/1e3+20;return r.map(x=>({...x,at:Math.round(x.at)})).filter(x=>x.at>t0).sort((a,b)=>a.at-b.at);
+}
+let pushing=0;
+async function npush(){
+	if(pushing||!navigator.onLine)return;pushing=1;
+	let S=ls('ns',{t:'',s:{}});const now=Date.now()/1e3|0;
+	try{
+		if(S.t!=ST.pt||!ST.pu){for(const id in S.s)if(+S.s[id].split('|')[0]>now)await fetch(NT+S.t+'/'+id,{method:'DELETE'});S={t:ST.pt,s:{}}}
+		if(ST.pu&&ST.pt){
+			const P=plan(4).filter(x=>x.at<now+255600),seen=new Set;let c=0;
+			for(const x of P){seen.add(x.id);const h=x.at+'|'+x.t+'|'+x.m;if(S.s[x.id]==h)continue;if(++c>40)break;
+				const r=await fetch(NT,{method:'POST',body:JSON.stringify({topic:ST.pt,sequence_id:x.id,delay:String(x.at),title:x.t,message:x.m,tags:x.g,priority:x.p,click:APP})});if(!r.ok)throw r.status;S.s[x.id]=h}
+			for(const id in S.s){const a=+S.s[id].split('|')[0];if(a<=now)delete S.s[id];else if(!seen.has(id)){await fetch(NT+ST.pt+'/'+id,{method:'DELETE'});delete S.s[id]}}
+			pmsg=L.pPlan(Object.keys(S.s).length);
+		}
+	}catch(e){pmsg=L.pErr(e.message||e)}
+	put0('ns',S);pushing=0;const e=$('pst');if(e)e.textContent=pmsg;
+}
+async function ntest(){try{const r=await fetch(NT,{method:'POST',body:JSON.stringify({topic:ST.pt,title:'Calendula',message:L.pTestM,tags:['white_check_mark'],click:APP})});pmsg=r.ok?L.pSent:L.pErr(r.status)}catch(e){pmsg=L.pErr(e.message)}const e=$('pst');if(e)e.textContent=pmsg}
 function apply(){
 	L=T[ST.lang];names();
 	const r=document.documentElement;r.lang=ST.lang;r.dir=ST.lang=='he'?'rtl':'ltr';r.dataset.th=ST.th;
 	document.querySelector('meta[name=theme-color]').content=THS[ST.th][1];
 	document.querySelectorAll('nav button').forEach((b,i)=>b.textContent=L.tabs[i]);
-	$('gr').setAttribute('aria-label',L.set);
+	$('gr').setAttribute('aria-label',L.set);$('mpb').setAttribute('aria-label',L.map);
 }
 // Анимация окна: вырастает из нажатой карточки и сворачивается обратно в неё
 const MO={duration:380,easing:'cubic-bezier(.32,.72,0,1)'};
@@ -554,7 +827,7 @@ function pop(){
 	sh.animate([{transform:from(sh),opacity:.4},{transform:'none',opacity:1}],MO);
 }
 function closeM(){
-	const m=$('md'),sh=m.firstElementChild,done=()=>{open=null;SRC=null;m.hidden=true};
+	const m=$('md'),sh=m.firstElementChild,done=()=>{open=null;SRC=null;GF=null;m.hidden=true};
 	if(RM||!sh||m.hidden)return done();
 	m.animate([{background:'rgba(2,14,11,.78)'},{background:'rgba(2,14,11,0)'}],{duration:260,easing:'ease-in',fill:'forwards'});
 	sh.animate([{transform:'none',opacity:1},{transform:from(sh),opacity:0}],{...MO,duration:300,fill:'forwards'}).onfinish=()=>{m.getAnimations({subtree:true}).forEach(a=>a.cancel());done()};
@@ -565,6 +838,17 @@ $('md').onclick=e=>{
 	if(!b){if(!e.target.closest('.sh'))closeM();return}
 	const d=b.dataset;
 	if(d.m){MK[open]==d.m?delete MK[open]:MK[open]=d.m;put('mark',MK);refresh();modal()}
+	else if(d.abm!==undefined){AB[open]?delete AB[open]:AB[open]=1;put('ab',AB);refresh();modal()}
+	else if(d.tg!==undefined){const k=open.slice(3),g=gaps(pd(k.split('|')[0])).find(g=>g.k==k);if($('g-rep').checked){delete GP[k];d.tg?GPW[g.w]=d.tg:delete GPW[g.w]}else GP[k]=d.tg;put('gp',GP);put('gpw',GPW);refresh();modal()}
+	else if(d.gadd!==undefined){GF.k.push({n:'',w:'',g:''});modal();[...document.querySelectorAll('.gk')].at(-1)?.querySelector('input').focus()}
+	else if(d.gdel){GF.k.splice(+d.gdel,1);modal()}
+	else if(d.cp!==undefined){navigator.clipboard?.writeText(ST.pt);b.textContent='✓'}
+	else if(d.pu!==undefined){ST.pu^=1;if(ST.pu&&!ST.pt)ST.pt='calendula-'+Math.random().toString(36).slice(2,10)+Math.random().toString(36).slice(2,8);put('set',ST);modal()}
+	else if(d.pl){ST.pl=+d.pl;put('set',ST);modal()}
+	else if(d.pk){ST.pk={...ST.pk,[d.pk]:ST.pk[d.pk]?0:1};put('set',ST);modal()}
+	else if(d.pt!==undefined)ntest();
+	else if(d.gs!==undefined)sync(1);
+	else if(d.gx!==undefined){tok='';try{localStorage.removeItem('ghTok')}catch(e){}modal()}
 	else if(d.ed){open='edit|'+d.ed;modal()}
 	else if(d.del){EV=EV.filter(e=>e.id!=d.del);put('ev',EV);SRC=null;closeM();refresh()}
 	else if(d.hwx){HW=HW.filter(w=>w.id!=d.hwx);put('hw',HW);refresh();modal()}
@@ -578,11 +862,22 @@ $('md').onclick=e=>{
 	}
 	else if(d.th){ST.th=d.th;put('set',ST);apply();refresh();modal()}
 	else if(d.lg){ST.lang=d.lg;put('set',ST);apply();refresh();modal();pill(cv)}
-	else if(d.map!==undefined){open='map|'+d.map;modal()}
+	else if(d.map!==undefined){MQ='';open='map|'+d.map;modal()}
 	else if(d.sxd){SX=SX.filter(x=>x.id!=d.sxd);put('sx',SX);closeM();refresh()}
 	else if(b.classList.contains('cl'))closeM();
 };
 $('md').addEventListener('keydown',e=>{if(e.key=='Enter'&&e.target.id=='hw-t'){e.preventDefault();$('hw-a').click()}});
+$('md').addEventListener('input',e=>{
+	const t=e.target,d=t.dataset;
+	if(d.gf){GF.k[+d.gi][d.gf]=t.value;calcT()}
+	else if(t.id=='g-z')GF.z=t.value;
+	else if(t.id=='g-f'){GF.f=t.value;calcT()}
+	else if(t.id=='g-t')calcT();
+	else if(t.id=='p-m'&&t.value){ST.pm=t.value;put('set',ST)}
+	else if(t.id=='p-t'){ST.pt=t.value.replace(/[^\w-]/g,'');put('set',ST)}
+	else if(t.id=='ms')msearch(t.value);
+});
+$('md').addEventListener('change',e=>{if(e.target.id=='gh-t'){tok=e.target.value.trim();try{localStorage.ghTok=tok}catch(x){}modal();sync(1)}});
 // ---------- Стопка: раскрытие и сворачивание одной анимацией (FLIP) ----------
 function stack(){
 	const el=$('nfs'),st=el.querySelector('.stk'),cs=[...st.children],r0=cs.map(c=>c.getBoundingClientRect()),h0=st.offsetHeight;
@@ -605,6 +900,12 @@ document.addEventListener('click',e=>{
 	const sx=q('[data-sx]');if(sx){SRC=sx.getBoundingClientRect();open='sx|'+sx.dataset.sx;modal();return}
 	if(q('#addx')){SRC=q('#addx').getBoundingClientRect();open='sx|';modal();return}
 	const ad=q('[data-add]');if(ad){SRC=ad.getBoundingClientRect();open='new|'+ad.dataset.add;modal();return}
+	if(q('#mpb')){SRC=q('#mpb').getBoundingClientRect();open='map|';modal();return}
+	const gp=q('[data-gp]');if(gp){SRC=gp.getBoundingClientRect();open='gp|'+gp.dataset.gp;modal();return}
+	const gr=q('[data-gr]');if(gr){SRC=gr.getBoundingClientRect();open='gr|'+gr.dataset.gr;modal();return}
+	const sb=q('[data-sub]');if(sb){if(+sb.dataset.sub!=SUB){SUB=+sb.dataset.sub;put0('sub',SUB);study(new Date());seg()}return}
+	const ao=q('[data-abo]');if(ao){ABO=ABO==ao.dataset.abo?null:ao.dataset.abo;study(new Date());return}
+	const ab=q('[data-ab]');if(ab){AB[ab.dataset.ab]?delete AB[ab.dataset.ab]:AB[ab.dataset.ab]=1;put('ab',AB);refresh();return}
 	const b=q('#v2 button');if(!b)return;
 	if(b.id=='wp'&&wk)wk--;else if(b.id=='wn')wk++;else if(b.id=='vw'){grid^=1;put('grid',grid)}else return;
 	week();
@@ -615,7 +916,7 @@ const refresh=()=>{key=null;tick()};
 function tick(){
 	const n=new Date(),k=[n.getDay(),n.getHours(),n.getMinutes(),ST.lang].join();
 	$('ck').textContent=`${p(n.getHours())}:${p(n.getMinutes())}`;
-	if(k!=key){const h0=HW.length;HW=HW.filter(w=>hwAt(w.due)>n);if(HW.length!=h0)put('hw',HW);key=k;S=state(n);$('dn').textContent=DN[S.d];$('dt').textContent=n.toLocaleDateString(L.loc,{day:'numeric',month:'long'});main(S,n);today(S,n);week();session(n)}
+	if(k!=key){const h0=HW.length;HW=HW.filter(w=>hwAt(w.due)>n);if(HW.length!=h0)put('hw',HW);key=k;S=state(n);$('dn').textContent=DN[S.d];$('dt').textContent=n.toLocaleDateString(L.loc,{day:'numeric',month:'long'})+(wkOf(n)?` · ${L.wkS(wkOf(n))}`:'');main(S,n);today(S,n);week();session(n);study(n)}
 	if(T1){
 		const[d,h,m,sc]=parts(T1-n),same=ymd(T1)==ymd(n),dd=$('t1d');
 		dd.hidden=!d;if(d){dd.firstChild.textContent=d;dd.lastChild.textContent=L.dw(d)}
@@ -634,11 +935,16 @@ function pill(v,anim){
 	if(anim&&!RM)pl.animate([{transform:`translateX(${px}px)`},{transform:`translateX(${(px+x)/2}px) scaleX(${(Math.abs(x-px)+w)/w*.75})`,offset:.45},{transform:`translateX(${x}px)`}],{duration:520,easing:'cubic-bezier(.4,1.35,.5,1)'});
 	px=x;
 }
+// появление: блоки вкладки поднимаются по очереди, крупные числа отсчитываются вверх
+function rise(n){
+	[...n.children].slice(0,8).forEach((e,j)=>e.animate([{opacity:0,transform:'translateY(14px)'},{opacity:1,transform:'none'}],{duration:460,delay:90+j*45,easing:ease,fill:'backwards'}));
+	n.querySelectorAll('.big b').forEach(b=>{const t=b.textContent,v=parseFloat(t);if(!/^\d+(\.\d)?$/.test(t))return;const d=t.includes('.')?1:0,t0=performance.now();const f=k=>{const x=Math.min(1,(k-t0)/700),e=1-Math.pow(1-x,3);b.textContent=(v*e).toFixed(d);if(x<1)requestAnimationFrame(f);else b.textContent=t};requestAnimationFrame(f)});
+}
 function show(v){
 	v=+v;if(v==cv)return;
 	document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.v==v));
 	const o=$('v'+cv),n=$('v'+v),d=(v>cv?1:-1)*(ST.lang=='he'?-1:1);
-	for(let i=0;i<4;i++)if(i!=v&&i!=cv)$('v'+i).hidden=true;
+	for(let i=0;i<5;i++)if(i!=v&&i!=cv)$('v'+i).hidden=true;
 	pill(v,cv>=0);
 	if(v==2&&wk){wk=0;week()}
 	n.getAnimations().forEach(a=>a.cancel());n.style.cssText='';n.hidden=false;
@@ -647,16 +953,17 @@ function show(v){
 		o.style.cssText=`position:absolute;left:16px;right:16px;top:${-y}px`;scrollTo(0,0);
 		o.animate([{transform:'none',opacity:1},{transform:`translateX(${-d*35}%)`,opacity:0}],{duration:380,easing:ease}).onfinish=()=>{o.style.cssText='';if(o.id!='v'+cv)o.hidden=true};
 		n.animate([{transform:`translateX(${d*100}%)`},{transform:'none'}],{duration:380,easing:ease});
+		rise(n);
 	}else{if(o)o.hidden=true;scrollTo(0,0)}
 	cv=v;put('tab',v);
 }
 addEventListener('resize',()=>pill(cv));
 document.querySelector('nav').onclick=e=>{const v=e.target.closest('button')?.dataset.v;if(v)show(v)};
-$('gr').innerHTML=GEAR;
+$('gr').innerHTML=GEAR;$('mpb').innerHTML=PIN;
 // цветок календулы: два ряда лепестков и серединка
 const pt=(n,r,ry,cy,o,c)=>Array.from({length:n},(_,i)=>`<ellipse rx="${r}" ry="${ry}" cy="${cy}" transform="rotate(${i*360/n+o})" fill="${c}"/>`).join('');
 $('lg').innerHTML=`<svg viewBox="-10 -10 20 20" aria-hidden="true">${pt(12,1.7,4.3,-5.2,0,'#f5801e')}${pt(12,1.5,3.4,-4.2,15,'#ffa448')}<circle r="2.6" fill="#c45614"/></svg><span dir="ltr">calendula</span>`;
-apply();tick();show(Math.min(3,+ls('tab',0)||0));setInterval(tick,1e3);
+apply();tick();sync();npush();addEventListener('online',()=>{sync();npush()});document.addEventListener('visibilitychange',()=>{if(!document.hidden){refresh();sync();npush()}});show(Math.min(4,+ls('tab',0)||0));setInterval(tick,1e3);
 if('serviceWorker'in navigator)navigator.serviceWorker.register('sw.js',{updateViaCache:'none'});
 </script>
 </body>
